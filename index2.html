@@ -64,9 +64,10 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(-
 .utility-bar--social .utility-bar__right{gap:16px}
 @media(max-width:767px){.utility-bar--social{display:none}}
 
-/* Navbar — two-tier layout; only the nav row sticks on scroll */
-.navbar{position:relative;background:#fff}
-.navbar__brand-row{padding:14px 0 10px;border-bottom:1px solid #eee;background:linear-gradient(180deg,#fff 0%,#fafbff 100%)}
+/* Navbar — two-tier; entire navbar sticky, brand row collapses on scroll */
+.navbar{position:sticky;top:0;z-index:1000;background:#fff;box-shadow:0 2px 12px rgba(0,0,0,.08);border-bottom:3px solid var(--gold)}
+.navbar__brand-row{padding:14px 0 10px;border-bottom:1px solid #eee;background:linear-gradient(180deg,#fff 0%,#fafbff 100%);max-height:260px;overflow:hidden;transition:max-height .35s cubic-bezier(.4,0,.2,1),padding .35s cubic-bezier(.4,0,.2,1),opacity .25s ease,border-color .3s ease;will-change:max-height}
+.navbar.scrolled .navbar__brand-row{max-height:0;padding-top:0;padding-bottom:0;opacity:0;border-bottom-color:transparent;pointer-events:none}
 .navbar__brand-row .container{display:flex;align-items:center;justify-content:space-between;gap:24px}
 .logo{display:flex;align-items:center;gap:18px;flex-shrink:0}
 .logo img{height:108px;width:auto;display:block;filter:drop-shadow(0 4px 10px rgba(45,61,123,.18))}
@@ -78,7 +79,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(-
 .navbar__contact a{display:inline-flex;align-items:center;gap:8px;color:var(--navy);font-weight:600;transition:color .2s}
 .navbar__contact a:hover{color:var(--gold)}
 .navbar__contact a svg{color:var(--gold)}
-.navbar__nav-row{background:#fff;position:sticky;top:0;z-index:1000;box-shadow:0 2px 12px rgba(0,0,0,.08);border-bottom:3px solid var(--gold)}
+.navbar__nav-row{background:#fff}
 .navbar__nav-row .container{display:flex;align-items:center;justify-content:center;min-height:60px;gap:16px;position:relative}
 .nav-links{display:flex;align-items:center;flex-wrap:nowrap;gap:2px}
 .nav-item{position:relative}
@@ -123,7 +124,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(-
 .mobile-nav__sub-group{font-size:12px;text-transform:uppercase;color:var(--gold);letter-spacing:.5px;font-weight:700;padding:8px 0 4px}
 .mobile-nav__footer{padding:16px 24px;border-top:1px solid #ddd;margin-top:auto}
 .mobile-nav__footer .nav-donate{width:100%;justify-content:center;padding:16px;font-size:16px;display:flex}
-@media(max-width:1199px){.nav-links,.nav-donate-desktop{display:none}.hamburger{display:flex}.mobile-overlay.active{display:block}.navbar__nav-row{display:none}.navbar__brand-row{padding:10px 0;border-bottom:3px solid var(--gold);position:sticky;top:0;z-index:1000;box-shadow:0 2px 12px rgba(0,0,0,.08)}}
+@media(max-width:1199px){.nav-links,.nav-donate-desktop{display:none}.hamburger{display:flex}.mobile-overlay.active{display:block}.navbar__nav-row{display:none}.navbar__brand-row{padding:10px 0;border-bottom:none}.navbar.scrolled .navbar__brand-row{max-height:260px;padding:10px 0;opacity:1;pointer-events:auto}}
 @media(min-width:1200px){.mobile-overlay,.mobile-nav,.hamburger{display:none!important}}
 @media(max-width:899px){.navbar__contact{display:none}.logo img{height:84px}.logo__name{font-size:20px}.logo__tagline{font-size:11px}}
 @media(max-width:599px){.logo img{height:64px}.logo{gap:12px}.logo__name{font-size:16px}}
@@ -1007,6 +1008,22 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(-
  // Testimonial dot indicator (visual only, single quote shown)
  var dots=document.querySelectorAll('.testimonial__dot');
  dots.forEach(function(d,i){d.addEventListener('click',function(){dots.forEach(function(x){x.classList.remove('active')});d.classList.add('active')})});
+
+ // Brand-row collapse on scroll, driven by IntersectionObserver (not scroll
+ // events) so transition-driven layout shifts cannot oscillate the trigger.
+ var navbar=document.querySelector('.navbar');
+ if(navbar && 'IntersectionObserver' in window){
+  var sentinel=document.createElement('div');
+  sentinel.setAttribute('aria-hidden','true');
+  sentinel.style.cssText='position:absolute;top:90px;left:0;width:1px;height:1px;pointer-events:none;visibility:hidden';
+  document.body.insertBefore(sentinel,document.body.firstChild);
+  var sentinelObs=new IntersectionObserver(function(entries){
+   entries.forEach(function(e){
+    navbar.classList.toggle('scrolled',!e.isIntersecting);
+   });
+  },{threshold:0});
+  sentinelObs.observe(sentinel);
+ }
 })();
 </script>
 </body>
