@@ -26,8 +26,8 @@
  --black:#0D0D0D;
 }
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:'Open Sans','Segoe UI',Arial,sans-serif;font-size:16px;color:var(--charcoal);line-height:1.6;background:#fff}
+html{scroll-behavior:smooth;overflow-anchor:none}
+body{font-family:'Open Sans','Segoe UI',Arial,sans-serif;font-size:16px;color:var(--charcoal);line-height:1.6;background:#fff;overflow-anchor:none}
 h1,h2,h3,h4,h5,h6{font-family:'Montserrat','Open Sans',Arial,sans-serif;color:var(--navy)}
 a{color:inherit;text-decoration:none}ul{list-style:none}img{max-width:100%;display:block}
 button{font-family:inherit;cursor:pointer;border:none;background:none}
@@ -1009,20 +1009,29 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(-
  var dots=document.querySelectorAll('.testimonial__dot');
  dots.forEach(function(d,i){d.addEventListener('click',function(){dots.forEach(function(x){x.classList.remove('active')});d.classList.add('active')})});
 
- // Brand-row collapse on scroll, driven by IntersectionObserver (not scroll
- // events) so transition-driven layout shifts cannot oscillate the trigger.
+ // Brand-row collapse on scroll. Uses two sentinels so we get hysteresis:
+ // collapse only past 140px, expand only when back above 40px. The 100px
+ // dead-zone in between prevents oscillation when scrolling near the edge.
+ // overflow-anchor:none on html/body prevents the browser from reverting
+ // scroll position after the collapse transition, which is the other half
+ // of the fix.
  var navbar=document.querySelector('.navbar');
  if(navbar && 'IntersectionObserver' in window){
-  var sentinel=document.createElement('div');
-  sentinel.setAttribute('aria-hidden','true');
-  sentinel.style.cssText='position:absolute;top:90px;left:0;width:1px;height:1px;pointer-events:none;visibility:hidden';
-  document.body.insertBefore(sentinel,document.body.firstChild);
-  var sentinelObs=new IntersectionObserver(function(entries){
-   entries.forEach(function(e){
-    navbar.classList.toggle('scrolled',!e.isIntersecting);
-   });
-  },{threshold:0});
-  sentinelObs.observe(sentinel);
+  function makeSentinel(top){
+   var el=document.createElement('div');
+   el.setAttribute('aria-hidden','true');
+   el.style.cssText='position:absolute;top:'+top+'px;left:0;width:1px;height:1px;pointer-events:none;visibility:hidden';
+   document.body.insertBefore(el,document.body.firstChild);
+   return el;
+  }
+  var sentinelCollapse=makeSentinel(140);  // past this → collapse
+  var sentinelExpand=makeSentinel(40);     // above this → expand
+  new IntersectionObserver(function(entries){
+   entries.forEach(function(e){if(!e.isIntersecting)navbar.classList.add('scrolled')});
+  },{threshold:0}).observe(sentinelCollapse);
+  new IntersectionObserver(function(entries){
+   entries.forEach(function(e){if(e.isIntersecting)navbar.classList.remove('scrolled')});
+  },{threshold:0}).observe(sentinelExpand);
  }
 })();
 </script>
