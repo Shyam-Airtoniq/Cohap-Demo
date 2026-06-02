@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>COHAP Homepage Mockups — Variant Picker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+ --navy:#2D3D7B;
+ --navy-deep:#28306c;
+ --gold:#c7862b;
+ --gold-light:#efac73;
+ --gold-deep:#8d4f36;
+ --light-gray:#F4F4F6;
+ --charcoal:#3b3b3b;
+ --mid-gray:#666;
+ --blue-tint:#E8EAF6;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Open Sans','Segoe UI',Arial,sans-serif;color:var(--charcoal);line-height:1.6;background:linear-gradient(135deg,#f7f8fc 0%,#eef0fa 100%);min-height:100vh}
+h1,h2,h3,h4{font-family:'Montserrat',sans-serif;color:var(--navy)}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+
+.wrap{max-width:1200px;margin:0 auto;padding:48px 24px 64px}
+
+.hero{text-align:center;margin-bottom:48px}
+.hero__logo{height:120px;width:auto;margin:0 auto 20px;filter:drop-shadow(0 6px 16px rgba(45,61,123,.2))}
+.hero h1{font-size:36px;font-weight:800;line-height:1.2}
+.hero p{font-size:17px;color:var(--mid-gray);margin-top:12px;max-width:680px;margin-left:auto;margin-right:auto}
+.hero__pill{display:inline-block;background:var(--gold);color:#fff;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:6px 16px;border-radius:30px;margin-bottom:16px}
+
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;margin-bottom:48px}
+
+.card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 8px 30px rgba(45,61,123,.1);transition:transform .3s ease,box-shadow .3s ease;display:flex;flex-direction:column;border:1px solid #e6e8f0}
+.card:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(45,61,123,.18)}
+
+.card__preview{position:relative;aspect-ratio:16/10;background:var(--navy);overflow:hidden}
+.card__preview iframe{position:absolute;top:0;left:0;width:200%;height:200%;border:0;transform:scale(.5);transform-origin:0 0;pointer-events:none}
+.card__overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(45,61,123,0) 0%,rgba(45,61,123,.55) 100%);display:flex;align-items:flex-end;padding:20px;opacity:0;transition:opacity .3s ease}
+.card:hover .card__overlay{opacity:1}
+.card__overlay-cta{background:#fff;color:var(--navy);font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:10px 18px;border-radius:6px;display:inline-flex;align-items:center;gap:8px;box-shadow:0 4px 14px rgba(0,0,0,.2)}
+.card__badge{position:absolute;top:16px;left:16px;background:var(--gold);color:#fff;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:6px 12px;border-radius:4px;z-index:2}
+
+.card__body{padding:28px 28px 24px;flex:1;display:flex;flex-direction:column}
+.card__title{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.card__title h2{font-size:22px;font-weight:800}
+.card__filename{font-family:'SF Mono','Consolas',monospace;font-size:13px;color:var(--gold-deep);background:#fdf6ec;padding:4px 10px;border-radius:4px;font-weight:600}
+.card__desc{font-size:14.5px;color:var(--mid-gray);margin-top:10px;line-height:1.6}
+.card__features{margin-top:16px;display:flex;flex-direction:column;gap:6px}
+.card__features li{font-size:13.5px;color:var(--charcoal);display:flex;gap:8px;align-items:flex-start;list-style:none}
+.card__features li::before{content:'✓';color:var(--gold);font-weight:800;flex-shrink:0}
+.card__actions{margin-top:22px;display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:'Montserrat',sans-serif;font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;border-radius:6px;padding:12px 22px;transition:all .25s ease;border:2px solid transparent;cursor:pointer;flex:1;min-width:140px}
+.btn--primary{background:var(--navy);color:#fff;border-color:var(--navy)}
+.btn--primary:hover{background:var(--navy-deep);border-color:var(--navy-deep);transform:translateY(-1px)}
+.btn--outline{background:transparent;border-color:var(--navy);color:var(--navy)}
+.btn--outline:hover{background:var(--blue-tint)}
+
+.notes{background:#fff;border-radius:14px;padding:28px 32px;border:1px solid #e6e8f0;box-shadow:0 4px 18px rgba(45,61,123,.06)}
+.notes h3{font-size:18px;font-weight:800;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.notes h3::before{content:'';width:6px;height:24px;background:var(--gold);border-radius:3px}
+.notes ul{padding-left:0;display:flex;flex-direction:column;gap:8px}
+.notes li{font-size:14px;color:var(--charcoal);padding-left:24px;position:relative;list-style:none}
+.notes li::before{content:'→';position:absolute;left:0;color:var(--gold);font-weight:800}
+.notes .small{font-size:13px;color:var(--mid-gray);margin-top:14px;padding-top:14px;border-top:1px solid #eee}
+
+.footer{text-align:center;margin-top:40px;font-size:13px;color:var(--mid-gray)}
+.footer strong{color:var(--navy)}
+
+@media(max-width:899px){
+ .grid{grid-template-columns:1fr}
+ .hero h1{font-size:28px}
+ .hero__logo{height:88px}
+ .card__preview iframe{transform:scale(.6)}
+}
+@media(max-width:599px){
+ .wrap{padding:32px 16px 48px}
+ .card__body{padding:22px 20px}
+ .btn{font-size:13px;padding:11px 16px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="hero">
+ <img src="bigger bird_dullercolor.png" alt="COHAP Outreach Corporation" class="hero__logo">
+ <span class="hero__pill">Homepage Mockups</span>
+ <h1>COHAP Homepage — Choose a Variant</h1>
+ <p>Two revised homepage directions for COHAP Outreach Corporation, built from your feedback. Click into each to preview live, then let us know which header treatment you prefer.</p>
+</div>
+
+<div class="grid">
+
+ <!-- Variant 1 -->
+ <div class="card">
+  <a href="index1.html" class="card__preview" aria-label="Open Variant 1">
+   <div class="card__badge">Variant 1</div>
+   <iframe src="index1.html" title="Variant 1 preview" loading="lazy" tabindex="-1"></iframe>
+   <div class="card__overlay"><span class="card__overlay-cta">Open Live Preview →</span></div>
+  </a>
+  <div class="card__body">
+   <div class="card__title">
+    <h2>Compact Header</h2>
+    <span class="card__filename">index1.html</span>
+   </div>
+   <p class="card__desc">Single-row navigation with a streamlined logo. Cleaner vertical footprint, more room for hero content above the fold.</p>
+   <ul class="card__features">
+    <li>Logo + 7-item nav + Donate button on one row</li>
+    <li>Utility bar at the very top (phone, email, social)</li>
+    <li>Best when minimizing header height matters most</li>
+   </ul>
+   <div class="card__actions">
+    <a href="index1.html" class="btn btn--primary">View Variant 1 →</a>
+    <a href="index1.html" target="_blank" rel="noopener" class="btn btn--outline">Open in New Tab</a>
+   </div>
+  </div>
+ </div>
+
+ <!-- Variant 2 -->
+ <div class="card">
+  <a href="index2.html" class="card__preview" aria-label="Open Variant 2">
+   <div class="card__badge">Variant 2</div>
+   <iframe src="index2.html" title="Variant 2 preview" loading="lazy" tabindex="-1"></iframe>
+   <div class="card__overlay"><span class="card__overlay-cta">Open Live Preview →</span></div>
+  </a>
+  <div class="card__body">
+   <div class="card__title">
+    <h2>Prominent Logo Header</h2>
+    <span class="card__filename">index2.html</span>
+   </div>
+   <p class="card__desc">Two-tier header: a large, fully-readable logo with the wordmark and contact info on top, navigation menu centered on the row below.</p>
+   <ul class="card__features">
+    <li>Large 108px logo with wordmark + tagline visible</li>
+    <li>Phone &amp; email surfaced beside the logo</li>
+    <li>Centered nav row with gold accent underline</li>
+   </ul>
+   <div class="card__actions">
+    <a href="index2.html" class="btn btn--primary">View Variant 2 →</a>
+    <a href="index2.html" target="_blank" rel="noopener" class="btn btn--outline">Open in New Tab</a>
+   </div>
+  </div>
+ </div>
+
+</div>
+
+<div class="notes">
+ <h3>What's the same across both variants</h3>
+ <ul>
+  <li>Official brand blue <strong>#2D3D7B</strong> and brand gold <strong>#c7862b</strong> from the COHAP branding guide</li>
+  <li>Updated menu structure: Who We Are, Programs, Get Help, Get Involved, Events, News &amp; Impact (with Gallery + Impact Reports year submenu), Contact Us</li>
+  <li>"Breaking the Cycle of Homelessness" prominent in hero, mentoring age updated to 12–25</li>
+  <li>New sections: Facts panel, Story/Video block, Gallery preview, larger social icons in footer</li>
+  <li>Platinum Transparency badge in hero and footer; all sponsorships consolidated under "Become a Sponsor"</li>
+ </ul>
+ <p class="small">The previous mockup is preserved at <strong>index_proposed.html</strong> for reference.</p>
+</div>
+
+<div class="footer">
+ Prepared by <strong>NineGravity</strong> for COHAP Outreach Corporation
+</div>
+
+</div>
+</body>
+</html>

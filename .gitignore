@@ -1,0 +1,12 @@
+# Client communication & private assets (do not publish)
+transcript1.md
+transcript2.md
+email.md
+COHAP BRANDING guide.pdf
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log

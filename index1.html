@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="COHAP Outreach Corporation — 501(c)(3) nonprofit breaking the cycle of homelessness for veterans, domestic violence survivors, formerly incarcerated individuals, and aged-out foster care youth.">
+<title>COHAP Outreach Corporation — Breaking the Cycle of Homelessness</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+ --navy:#2D3D7B;
+ --navy-deep:#28306c;
+ --navy-soft:#343a7e;
+ --blue-light:#6A78D1;
+ --blue-tint:#E8EAF6;
+ --gold:#c7862b;
+ --gold-light:#efac73;
+ --gold-deep:#8d4f36;
+ --white:#fff;
+ --light-gray:#F4F4F6;
+ --soft-gray:#E9E8E8;
+ --charcoal:#3b3b3b;
+ --mid-gray:#666;
+ --black:#0D0D0D;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Open Sans','Segoe UI',Arial,sans-serif;font-size:16px;color:var(--charcoal);line-height:1.6;background:#fff}
+h1,h2,h3,h4,h5,h6{font-family:'Montserrat','Open Sans',Arial,sans-serif;color:var(--navy)}
+a{color:inherit;text-decoration:none}ul{list-style:none}img{max-width:100%;display:block}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+.skip-link{position:absolute;top:-100%;left:16px;background:var(--navy);color:#fff;padding:12px 24px;border-radius:0 0 6px 6px;z-index:10000;font-size:14px;font-weight:700}
+.skip-link:focus{top:0}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--blue-light);outline-offset:2px}
+.container{max-width:1280px;margin:0 auto;padding:0 24px}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;border-radius:6px;padding:14px 32px;transition:all .25s ease;cursor:pointer;border:2px solid transparent;min-height:48px;font-family:'Montserrat',sans-serif}
+.btn--cta{background:var(--gold);color:#fff;border-color:var(--gold);box-shadow:0 4px 12px rgba(0,0,0,.18)}
+.btn--cta:hover{background:var(--gold-deep);border-color:var(--gold-deep)}
+.btn--outline{background:transparent;border-color:var(--navy);color:var(--navy)}
+.btn--outline:hover{background:var(--blue-tint);border-color:var(--navy);color:var(--navy-deep)}
+.btn--solid{background:var(--navy);color:#fff;border-color:var(--navy)}
+.btn--solid:hover{background:var(--navy-deep);border-color:var(--navy-deep)}
+.btn--ghost{background:transparent;border-color:#fff;color:#fff}
+.btn--ghost:hover{background:#fff;color:var(--navy)}
+.btn-arrow{transition:transform .25s ease;display:inline-block}
+.btn:hover .btn-arrow{transform:translateX(4px)}
+
+/* Utility bar */
+.utility-bar{background:var(--navy);height:38px;display:flex;align-items:center;font-size:13px;color:#fff}
+.utility-bar .container{display:flex;justify-content:space-between;align-items:center;width:100%}
+.utility-bar__left{display:flex;align-items:center;gap:20px}
+.utility-bar__left a{display:inline-flex;align-items:center;gap:6px;color:#fff;transition:opacity .2s}
+.utility-bar__left a:hover{opacity:.85;color:var(--gold-light)}
+.utility-bar__right{display:flex;align-items:center;gap:14px}
+.utility-bar__right a{display:inline-flex;color:#fff;transition:color .2s}
+.utility-bar__right a:hover{color:var(--gold-light)}
+@media(max-width:767px){.utility-bar{display:none}}
+
+/* Navbar */
+.navbar{position:sticky;top:0;z-index:1000;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.navbar .container{display:flex;align-items:center;justify-content:space-between;min-height:80px;gap:16px}
+.logo{display:flex;align-items:center;flex-shrink:0}
+.logo img{height:72px;width:auto;display:block}
+.nav-links{display:flex;align-items:center;flex-wrap:nowrap}
+.nav-item{position:relative}
+.nav-item>a{display:flex;align-items:center;gap:4px;padding:8px 11px;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.3px;transition:color .2s;min-height:48px;white-space:nowrap}
+.nav-item>a:hover{color:var(--gold)}
+.nav-item>a .chev{width:11px;height:11px;transition:transform .2s;fill:none;stroke:currentColor;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.dropdown{position:absolute;top:100%;left:0;min-width:260px;background:#fff;border-radius:8px;box-shadow:0 8px 32px rgba(0,0,0,.14);border-top:3px solid var(--gold);padding:10px;opacity:0;visibility:hidden;transform:translateY(8px);transition:all .2s ease;z-index:100}
+.nav-item:hover>.dropdown,.nav-item.open>.dropdown{opacity:1;visibility:visible;transform:translateY(0)}
+.nav-item:hover>a .chev{transform:rotate(180deg)}
+.dropdown a{display:block;padding:10px 14px;font-size:14px;font-weight:600;color:var(--charcoal);border-radius:4px;transition:background .15s,color .15s;text-transform:none;letter-spacing:0;font-family:'Open Sans',sans-serif}
+.dropdown a:hover{background:var(--blue-tint);color:var(--navy)}
+.dropdown__group{position:relative}
+.dropdown__group>a{display:flex;justify-content:space-between;align-items:center}
+.dropdown__group>a::after{content:'›';font-size:18px;color:var(--gold);font-weight:700}
+.dropdown__sub{position:absolute;top:0;left:100%;min-width:200px;background:#fff;border-radius:8px;box-shadow:0 8px 32px rgba(0,0,0,.14);border-top:3px solid var(--gold);padding:10px;opacity:0;visibility:hidden;transform:translateX(8px);transition:all .2s ease;margin-left:6px}
+.dropdown__group:hover>.dropdown__sub{opacity:1;visibility:visible;transform:translateX(0)}
+.dropdown__crisis{background:linear-gradient(90deg,rgba(199,134,43,.12),rgba(199,134,43,.04));border-left:3px solid var(--gold);padding:10px 14px;margin:4px 0;border-radius:4px;font-size:13px;color:var(--charcoal);font-weight:600}
+.nav-donate{margin-left:6px;background:var(--gold);color:#fff;font-family:'Montserrat',sans-serif;font-size:14px;font-weight:700;padding:11px 22px;border-radius:6px;display:inline-flex;align-items:center;gap:6px;transition:background .2s;text-transform:uppercase;letter-spacing:.4px;animation:donorPulse 2.4s ease-out 3}
+.nav-donate:hover{background:var(--gold-deep)}
+.hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;width:48px;height:48px;padding:12px;z-index:1100}
+.hamburger span{display:block;width:24px;height:2px;background:var(--navy);transition:all .3s ease;transform-origin:center}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+
+/* Mobile nav */
+.mobile-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:1050;opacity:0;transition:opacity 300ms}
+.mobile-overlay.active{opacity:1}
+.mobile-nav{position:fixed;top:0;right:-85vw;width:85vw;max-width:400px;height:100%;background:#fff;z-index:1060;transition:right .3s ease;overflow-y:auto;display:flex;flex-direction:column}
+.mobile-nav.active{right:0}
+.mobile-nav__header{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid #ddd}
+.mobile-nav__close{width:48px;height:48px;display:flex;align-items:center;justify-content:center;font-size:28px;color:var(--navy)}
+.mobile-nav__body{flex:1;padding:8px 0}
+.mobile-nav__item{border-bottom:1px solid #f0f0f0}
+.mobile-nav__item>a,.mobile-nav__toggle{display:flex;justify-content:space-between;align-items:center;padding:16px 24px;font-family:'Montserrat',sans-serif;font-size:15px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.3px;width:100%;text-align:left;min-height:48px}
+.mobile-nav__toggle .chev{width:14px;height:14px;transition:transform 300ms;fill:none;stroke:currentColor;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.mobile-nav__toggle.active .chev{transform:rotate(180deg)}
+.mobile-nav__sub{display:none;padding:0 24px 12px 36px}
+.mobile-nav__sub.active{display:block}
+.mobile-nav__sub a{display:block;padding:10px 0;font-size:14px;color:var(--charcoal);border-bottom:1px solid #f5f5f5;font-weight:600}
+.mobile-nav__sub a:last-child{border-bottom:none}
+.mobile-nav__sub-group{font-size:12px;text-transform:uppercase;color:var(--gold);letter-spacing:.5px;font-weight:700;padding:8px 0 4px}
+.mobile-nav__footer{padding:16px 24px;border-top:1px solid #ddd;margin-top:auto}
+.mobile-nav__footer .nav-donate{width:100%;justify-content:center;padding:16px;font-size:16px;display:flex}
+@media(max-width:1199px){.nav-links,.nav-donate-desktop{display:none}.hamburger{display:flex}.mobile-overlay.active{display:block}}
+@media(min-width:1200px){.mobile-overlay,.mobile-nav,.hamburger{display:none!important}}
+
+/* Hero — uses positive community imagery (no bars/prison feel) */
+.hero{width:100%;min-height:88vh;background:linear-gradient(120deg,rgba(45,61,123,.92) 0%,rgba(45,61,123,.65) 55%,rgba(199,134,43,.4) 100%),url('images/hero-bg.jpg') center/cover no-repeat,#2D3D7B;display:flex;align-items:center;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:80px;background:linear-gradient(180deg,rgba(0,0,0,0) 0%,rgba(0,0,0,.15) 100%)}
+.hero .container{position:relative;z-index:2;width:100%}
+.hero__eyebrow{display:inline-block;background:rgba(199,134,43,.95);color:#fff;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:8px 18px;border-radius:30px;margin-bottom:20px;opacity:0;animation:fadeSlideUp 700ms ease forwards}
+.hero__content{max-width:760px}
+.hero__headline{font-family:'Montserrat',sans-serif;font-size:54px;font-weight:800;color:#fff;line-height:1.1;text-shadow:0 2px 12px rgba(0,0,0,.25);animation:fadeSlideUp 800ms ease 100ms forwards;opacity:0}
+.hero__headline span{display:block;color:var(--gold-light);font-size:28px;font-weight:700;margin-top:10px;text-shadow:0 2px 8px rgba(0,0,0,.3)}
+.hero__subheadline{font-size:18px;color:rgba(255,255,255,.95);line-height:1.65;max-width:640px;margin-top:24px;opacity:0;animation:fadeSlideUp 800ms ease 250ms forwards}
+.hero__ctas{display:flex;gap:16px;margin-top:36px;flex-wrap:wrap;opacity:0;animation:fadeSlideUp 800ms ease 400ms forwards}
+.hero__badges{position:absolute;bottom:40px;right:40px;z-index:2;display:flex;gap:14px;align-items:center}
+.hero__badge{background:rgba(255,255,255,.95);padding:8px;border-radius:8px;box-shadow:0 4px 14px rgba(0,0,0,.2)}
+.hero__badge img{height:60px;width:auto;display:block}
+.hero__badge--platinum{background:rgba(255,255,255,.95);color:var(--navy);font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;line-height:1.2;text-align:center;padding:10px 14px;border-radius:8px;letter-spacing:.5px;text-transform:uppercase}
+.hero__badge--platinum strong{display:block;font-size:14px;color:var(--gold)}
+@media(max-width:1023px){.hero{min-height:78vh}.hero__headline{font-size:40px}.hero__headline span{font-size:22px}.hero__subheadline{font-size:16px}}
+@media(max-width:767px){.hero{min-height:72vh}.hero__headline{font-size:30px}.hero__headline span{font-size:18px}.hero__ctas{flex-direction:column}.hero__ctas .btn{width:100%}.hero__badges{display:none}}
+
+.reveal-section{opacity:0;transform:translateY(40px);transition:opacity 600ms ease,transform 600ms ease}
+.reveal-section.visible{opacity:1;transform:translateY(0)}
+
+/* Pathways */
+.pathways{background:#fff;border-top:4px solid var(--gold);padding:80px 0}
+.pathways__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.pathway-card{background:#fff;border:1px solid #e0e0e0;border-radius:12px;padding:32px 24px;text-align:center;border-top:4px solid transparent;transition:all .3s ease;display:flex;flex-direction:column}
+.pathway-card:hover{transform:translateY(-8px);box-shadow:0 12px 32px rgba(45,61,123,.15);border-top-color:var(--gold)}
+.pathway-card__icon{width:64px;height:64px;border-radius:50%;background:var(--blue-tint);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;color:var(--navy)}
+.pathway-card h4{font-size:18px;font-weight:700;color:var(--navy);line-height:1.3}
+.pathway-card p{font-size:14px;color:var(--charcoal);line-height:1.55;margin-top:10px;flex:1}
+.pathway-card__link{display:inline-block;margin-top:16px;font-size:14px;color:var(--navy);font-weight:700;text-transform:uppercase;letter-spacing:.5px;font-family:'Montserrat',sans-serif}
+.pathway-card__link:hover{color:var(--gold)}
+@media(max-width:1023px){.pathways__grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:767px){.pathways{padding:48px 0}.pathways__grid{grid-template-columns:1fr}}
+
+/* Mission */
+.mission{background:var(--navy);padding:72px 0;position:relative;overflow:hidden}
+.mission::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(199,134,43,.1) 0%,transparent 50%);pointer-events:none}
+.mission__inner{max-width:840px;margin:0 auto;text-align:center;position:relative;padding:0 24px;z-index:1}
+.mission__eyebrow{display:inline-block;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;color:var(--gold);letter-spacing:3px;text-transform:uppercase;margin-bottom:16px}
+.mission__inner::before{content:"\201C";position:absolute;top:-30px;left:0;font-size:120px;color:var(--gold);opacity:.2;line-height:1;font-family:Georgia,serif}
+.mission__quote{color:#fff;font-style:italic;font-size:22px;line-height:1.7;position:relative;font-family:'Open Sans',sans-serif}
+.mission__attr{color:var(--gold-light);font-size:13px;font-weight:700;margin-top:18px;letter-spacing:1px;text-transform:uppercase}
+@media(max-width:767px){.mission{padding:48px 0}.mission__quote{font-size:18px}}
+
+/* Campaign */
+.campaign{background:var(--light-gray);padding:80px 0}
+.campaign__grid{display:grid;grid-template-columns:55fr 45fr;gap:48px;align-items:center}
+.campaign__image{background:linear-gradient(135deg,rgba(45,61,123,.7),rgba(40,48,108,.85)),url('images/school-bash.jpg') center/cover no-repeat;border-radius:12px;height:400px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;text-align:center;padding:40px}
+.campaign__image h3{font-family:'Montserrat',sans-serif;font-size:36px;font-weight:800;line-height:1.15;color:#fff}
+.campaign__image p{font-size:18px;margin-top:12px;opacity:.92}
+.campaign__eyebrow{font-family:'Montserrat',sans-serif;font-size:13px;text-transform:uppercase;letter-spacing:2px;color:var(--gold);font-weight:700;margin-bottom:8px}
+.campaign__content h2{font-size:34px;font-weight:800;color:var(--navy);line-height:1.2}
+.campaign__content>p{font-size:16px;color:var(--charcoal);line-height:1.65;margin-top:16px}
+.progress-wrapper{margin-top:32px}
+.progress-labels{display:flex;justify-content:space-between;margin-bottom:8px}
+.progress-labels .raised{font-weight:700;color:var(--navy);font-size:15px}
+.progress-labels .goal{color:var(--mid-gray);font-size:15px}
+.progress-track{width:100%;height:16px;background:#ddd;border-radius:8px;overflow:hidden}
+.progress-fill{height:100%;width:0;border-radius:8px;background:linear-gradient(90deg,var(--gold),var(--gold-light));transition:width 1.5s cubic-bezier(.4,0,.2,1)}
+.progress-fill.in-view{width:var(--progress)}
+.campaign__buttons{margin-top:24px;display:flex;gap:12px;flex-wrap:wrap}
+.campaign__secondary{display:inline-block;margin-top:14px;font-size:14px;color:var(--navy);font-weight:700;font-family:'Montserrat',sans-serif;text-transform:uppercase;letter-spacing:.5px}
+.campaign__secondary:hover{color:var(--gold)}
+@media(max-width:1023px){.campaign__grid{grid-template-columns:1fr}.campaign__image{height:300px}}
+@media(max-width:767px){.campaign{padding:48px 0}.campaign__content h2{font-size:26px}.campaign__buttons .btn{width:100%}}
+
+/* Impact stats */
+.impact{background:#fff;padding:80px 0}
+.impact__header{text-align:center;margin-bottom:40px}
+.impact__header h2{font-size:32px;font-weight:800;color:var(--navy)}
+.impact__header p{font-size:16px;color:var(--mid-gray);margin-top:8px}
+.impact__grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.impact__icon{width:72px;height:72px;border-radius:50%;background:var(--blue-tint);display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+.impact__icon svg{width:36px;height:36px;color:var(--navy)}
+.impact__item{text-align:center;padding:24px;position:relative}
+.impact__item:not(:last-child)::after{content:'';position:absolute;right:0;top:20%;height:60%;width:1px;background:#ddd}
+.impact__number{font-family:'Montserrat',sans-serif;font-size:54px;font-weight:800;color:var(--gold);line-height:1;display:flex;align-items:baseline;justify-content:center;gap:2px}
+.impact__prefix,.impact__suffix{font-size:40px}
+.impact__label{font-size:14px;color:var(--mid-gray);margin-top:8px;font-weight:600}
+.impact__cta{text-align:center;margin-top:40px}
+@media(max-width:767px){.impact{padding:48px 0}.impact__grid{grid-template-columns:repeat(2,1fr);gap:24px}.impact__item::after{display:none}.impact__number{font-size:40px}.impact__prefix,.impact__suffix{font-size:30px}}
+
+/* Programs */
+.programmes{background:var(--light-gray);padding:80px 0}
+.programmes__header{text-align:center;margin-bottom:48px}
+.programmes__header h2{font-size:32px;font-weight:800;color:var(--navy);line-height:1.25}
+.programmes__header p{font-size:16px;color:var(--charcoal);max-width:640px;margin:12px auto 0;line-height:1.6}
+.programmes__grid{display:grid;grid-template-columns:repeat(5,1fr);gap:20px}
+.programme-card{background:#fff;border-radius:12px;box-shadow:0 2px 12px rgba(0,0,0,.06);overflow:hidden;min-height:340px;display:flex;flex-direction:column;transition:all .3s ease}
+.programme-card:hover{transform:translateY(-6px);box-shadow:0 12px 28px rgba(45,61,123,.14)}
+.programme-card__header{height:140px;background:linear-gradient(135deg,rgba(45,61,123,.65),rgba(40,48,108,.65)),var(--card-bg) center/cover no-repeat;display:flex;align-items:flex-end;justify-content:center;position:relative}
+.programme-card__icon{position:absolute;bottom:-24px;width:52px;height:52px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,.18)}
+.programme-card__icon svg{color:#fff}
+.programme-card__body{padding:36px 18px 24px;text-align:center;flex:1;display:flex;flex-direction:column}
+.programme-card__body h4{font-size:17px;font-weight:700;color:var(--navy);line-height:1.3}
+.programme-card__body p{font-size:14px;color:var(--charcoal);line-height:1.55;margin-top:8px;flex:1}
+.programme-card__link{margin-top:14px;padding-top:8px;font-size:13px;color:var(--navy);font-weight:700;text-transform:uppercase;letter-spacing:.5px;font-family:'Montserrat',sans-serif}
+.programme-card__link:hover{color:var(--gold)}
+@media(max-width:1023px){.programmes__grid{grid-template-columns:none;display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:20px;padding-bottom:16px}.programme-card{min-width:280px;scroll-snap-align:start;flex-shrink:0}}
+@media(max-width:767px){.programmes{padding:48px 0}.programmes__header h2{font-size:26px}}
+
+/* Facts section (small, links to dedicated facts page) */
+.facts{background:#fff;padding:60px 0}
+.facts__inner{background:linear-gradient(135deg,var(--blue-tint) 0%,#fff 100%);border:2px solid var(--blue-tint);border-radius:14px;padding:40px 36px;display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center}
+.facts__content h3{font-size:24px;font-weight:800;color:var(--navy);line-height:1.3}
+.facts__content p{font-size:15px;color:var(--charcoal);margin-top:8px;line-height:1.6;max-width:620px}
+.facts__stats{display:flex;gap:32px;margin-top:20px;flex-wrap:wrap}
+.facts__stat{display:flex;flex-direction:column}
+.facts__stat-num{font-family:'Montserrat',sans-serif;font-size:28px;font-weight:800;color:var(--gold);line-height:1}
+.facts__stat-label{font-size:12px;color:var(--mid-gray);font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-top:4px}
+.facts__action{text-align:center}
+@media(max-width:767px){.facts{padding:40px 0}.facts__inner{grid-template-columns:1fr;padding:28px 20px;text-align:center}.facts__stats{justify-content:center}}
+
+/* Video / Story section */
+.story{background:var(--navy);padding:80px 0;color:#fff;position:relative;overflow:hidden}
+.story__grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.story__content h2{color:#fff;font-size:32px;font-weight:800;line-height:1.2}
+.story__eyebrow{display:inline-block;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;color:var(--gold);letter-spacing:3px;text-transform:uppercase;margin-bottom:14px}
+.story__content p{color:rgba(255,255,255,.9);font-size:16px;line-height:1.7;margin-top:14px}
+.story__content .btn{margin-top:24px}
+.story__video{position:relative;border-radius:12px;overflow:hidden;aspect-ratio:16/9;background:linear-gradient(135deg,rgba(199,134,43,.5),rgba(40,48,108,.7)),url('images/volunteers.jpg') center/cover no-repeat;box-shadow:0 12px 40px rgba(0,0,0,.3);cursor:pointer}
+.story__play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.story__play-btn{width:84px;height:84px;border-radius:50%;background:rgba(255,255,255,.95);display:flex;align-items:center;justify-content:center;transition:transform .3s ease,background .3s ease}
+.story__video:hover .story__play-btn{transform:scale(1.1);background:var(--gold)}
+.story__play-btn svg{color:var(--navy);margin-left:4px;width:36px;height:36px}
+.story__video:hover .story__play-btn svg{color:#fff}
+.story__caption{position:absolute;bottom:16px;left:16px;right:16px;background:rgba(0,0,0,.55);color:#fff;padding:10px 14px;border-radius:6px;font-size:13px;font-weight:600;backdrop-filter:blur(8px)}
+@media(max-width:1023px){.story__grid{grid-template-columns:1fr}}
+@media(max-width:767px){.story{padding:48px 0}.story__content h2{font-size:26px}.story__play-btn{width:64px;height:64px}.story__play-btn svg{width:28px;height:28px}}
+
+/* Testimonial */
+.testimonial{background:linear-gradient(rgba(45,61,123,.92),rgba(40,48,108,.92)),url('images/volunteers.jpg') center/cover no-repeat;padding:80px 0}
+.testimonial__inner{max-width:840px;margin:0 auto;text-align:center;position:relative;padding:0 24px}
+.testimonial__inner::before{content:"\201C";position:absolute;top:-30px;left:0;font-size:120px;color:var(--gold);opacity:.25;line-height:1;font-family:Georgia,serif}
+.testimonial__quote{color:#fff;font-style:italic;font-size:20px;line-height:1.7;position:relative}
+.testimonial__attr{color:var(--gold-light);font-size:14px;font-weight:700;margin-top:24px;letter-spacing:1px;text-transform:uppercase}
+.testimonial__dots{display:flex;justify-content:center;gap:8px;margin-top:24px}
+.testimonial__dot{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.3);cursor:pointer;transition:background .2s}
+.testimonial__dot.active{background:var(--gold)}
+@media(max-width:767px){.testimonial{padding:48px 0}.testimonial__quote{font-size:17px}}
+
+/* Events + News */
+.events-news{background:var(--light-gray);padding:80px 0}
+.events-news__grid{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.events-news__grid h2{font-size:30px;font-weight:800;color:var(--navy);line-height:1.25;margin-bottom:24px}
+.event-card{background:#fff;border-radius:8px;padding:0;display:flex;gap:0;margin-bottom:16px;transition:box-shadow .2s,transform .2s;overflow:hidden}
+.event-card:hover{box-shadow:0 6px 20px rgba(45,61,123,.12);transform:translateY(-2px)}
+.event-card__img{width:120px;min-height:100%;object-fit:cover;flex-shrink:0}
+.event-card__inner{display:flex;gap:16px;padding:20px;flex:1}
+.event-card__date{min-width:60px;background:var(--navy);color:#fff;border-radius:8px;text-align:center;padding:8px;display:flex;flex-direction:column;justify-content:center;align-self:flex-start}
+.event-card__month{font-family:'Montserrat',sans-serif;font-size:11px;text-transform:uppercase;font-weight:700;letter-spacing:.5px}
+.event-card__day{font-family:'Montserrat',sans-serif;font-size:22px;font-weight:800}
+.event-card__body h4{font-size:16px;font-weight:700;color:var(--navy);line-height:1.3}
+.event-card__location{font-size:13px;color:var(--mid-gray);display:flex;align-items:center;gap:4px;margin-top:4px}
+.event-card__link{font-size:13px;color:var(--navy);font-weight:700;margin-top:8px;display:inline-block;text-transform:uppercase;letter-spacing:.5px;font-family:'Montserrat',sans-serif}
+.event-card__link:hover{color:var(--gold)}
+.news-card{background:#fff;border-radius:8px;padding:0;margin-bottom:16px;transition:box-shadow .2s,transform .2s;overflow:hidden;display:flex;flex-direction:column}
+.news-card:hover{box-shadow:0 6px 20px rgba(45,61,123,.12);transform:translateY(-2px)}
+.news-card__img{width:100%;height:160px;object-fit:cover}
+.news-card__content{padding:20px}
+.news-card__date{font-size:12px;color:var(--mid-gray);text-transform:uppercase;letter-spacing:.5px;font-weight:600}
+.news-card h4{font-size:16px;font-weight:700;color:var(--navy);line-height:1.3;margin-top:6px}
+.news-card p{font-size:14px;color:var(--charcoal);margin-top:6px;line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.news-card__link{font-size:13px;color:var(--navy);font-weight:700;margin-top:8px;display:inline-block;text-transform:uppercase;letter-spacing:.5px;font-family:'Montserrat',sans-serif}
+.news-card__link:hover{color:var(--gold)}
+.section-more{text-align:center;margin-top:24px}
+@media(max-width:1023px){.events-news__grid{grid-template-columns:1fr}}
+@media(max-width:767px){.events-news{padding:48px 0}.events-news__grid h2{font-size:24px}.event-card__img{width:80px}.news-card__img{height:140px}}
+
+/* Gallery preview */
+.gallery{background:#fff;padding:80px 0}
+.gallery__header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:40px;flex-wrap:wrap;gap:16px}
+.gallery__header h2{font-size:30px;font-weight:800;color:var(--navy)}
+.gallery__header p{font-size:15px;color:var(--mid-gray);margin-top:8px;max-width:560px}
+.gallery__grid{display:grid;grid-template-columns:repeat(6,1fr);grid-template-rows:200px 200px;gap:12px}
+.gallery__item{border-radius:8px;overflow:hidden;position:relative;cursor:pointer;background:#ddd;background-size:cover;background-position:center;transition:transform .3s ease}
+.gallery__item:hover{transform:scale(1.02)}
+.gallery__item::after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,rgba(45,61,123,.45),rgba(45,61,123,0) 60%);opacity:.4;transition:opacity .25s ease}
+.gallery__item:hover::after{opacity:.85}
+.gallery__item:nth-child(1){grid-column:span 2;grid-row:span 2}
+.gallery__item:nth-child(2){grid-column:span 2}
+.gallery__item:nth-child(3){grid-column:span 2}
+.gallery__item:nth-child(4){grid-column:span 2}
+.gallery__item:nth-child(5){grid-column:span 2}
+@media(max-width:1023px){.gallery__grid{grid-template-columns:repeat(4,1fr);grid-template-rows:160px 160px 160px}.gallery__item:nth-child(1){grid-column:span 2;grid-row:span 2}.gallery__item:nth-child(n+2){grid-column:span 2}}
+@media(max-width:767px){.gallery{padding:48px 0}.gallery__grid{grid-template-columns:repeat(2,1fr);grid-template-rows:140px 140px 140px}.gallery__item:nth-child(1){grid-column:span 2;grid-row:span 1}.gallery__item:nth-child(n+2){grid-column:span 1}}
+
+/* Partners */
+.partners{background:var(--light-gray);padding:80px 0;overflow:hidden}
+.partners__header{text-align:center;margin-bottom:40px}
+.partners__header h2{font-size:30px;font-weight:800;color:var(--navy)}
+.partners__header p{font-size:15px;color:var(--mid-gray);margin-top:8px}
+.partners__carousel{overflow:hidden;position:relative;width:100%}
+.partners__track{display:flex;gap:24px;animation:scrollLogos 30s linear infinite;width:max-content}
+.partners__carousel:hover .partners__track{animation-play-state:paused}
+.partner-logo{min-width:170px;height:84px;background:#fff;border:1px solid #e0e0e0;border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-size:14px;font-weight:700;color:var(--mid-gray);text-align:center;padding:8px;filter:grayscale(100%);opacity:.7;transition:all .4s ease;flex-shrink:0}
+.partner-logo:hover{filter:grayscale(0);opacity:1;color:var(--navy);border-color:var(--gold)}
+@media(prefers-reduced-motion:reduce){.partners__track{animation:none;flex-wrap:wrap;justify-content:center}}
+@media(max-width:767px){.partners{padding:48px 0}.partners__header h2{font-size:24px}}
+
+/* Newsletter */
+.newsletter{background:var(--gold);padding:64px 0;position:relative;overflow:hidden}
+.newsletter::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(45,61,123,.15) 0%,transparent 60%);pointer-events:none}
+.newsletter__inner{max-width:600px;margin:0 auto;text-align:center;padding:0 24px;position:relative;z-index:1}
+.newsletter__inner h3{font-family:'Montserrat',sans-serif;font-size:26px;font-weight:800;color:#fff;line-height:1.25}
+.newsletter__inner>p{font-size:16px;color:rgba(255,255,255,.95);margin-top:8px;line-height:1.55}
+.newsletter__form{display:flex;margin-top:26px}
+.newsletter__form input[type="email"]{flex:1;padding:14px 20px;border:none;border-radius:6px 0 0 6px;font-size:16px;outline:none;min-width:0;font-family:'Open Sans',sans-serif}
+.newsletter__form input[type="email"]::placeholder{color:#999}
+.newsletter__form button{padding:14px 28px;background:var(--navy);color:#fff;font-family:'Montserrat',sans-serif;font-size:15px;font-weight:700;border:none;border-radius:0 6px 6px 0;cursor:pointer;white-space:nowrap;transition:background .2s;text-transform:uppercase;letter-spacing:.5px}
+.newsletter__form button:hover{background:var(--navy-deep)}
+.newsletter__privacy{font-size:13px;color:rgba(255,255,255,.85);margin-top:14px}
+@media(max-width:767px){.newsletter__form{flex-direction:column}.newsletter__form input[type="email"]{border-radius:6px}.newsletter__form button{border-radius:6px;margin-top:8px}}
+
+/* Footer */
+.footer-wave{display:block;width:100%;height:60px;background:var(--gold)}
+.footer-wave svg{display:block;width:100%;height:60px}
+.footer{background:var(--navy);padding:64px 0 0;color:#fff}
+.footer__grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.2fr;gap:48px}
+.footer__brand .logo{flex-direction:column;align-items:flex-start;gap:12px}
+.footer__brand .logo img{height:96px;width:auto;background:rgba(255,255,255,.96);padding:6px;border-radius:8px}
+.footer__ein{font-size:13px;color:rgba(255,255,255,.7);margin-top:14px}
+.footer__tax{font-size:13px;color:rgba(255,255,255,.7);margin-top:8px;line-height:1.5}
+.footer__social{display:flex;gap:14px;margin-top:20px}
+.footer__social a{width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.08);color:#fff;display:inline-flex;align-items:center;justify-content:center;transition:all .25s ease;border:1px solid rgba(255,255,255,.1)}
+.footer__social a:hover{background:var(--gold);color:#fff;transform:translateY(-2px);border-color:var(--gold)}
+.footer h5{font-family:'Montserrat',sans-serif;font-size:14px;font-weight:800;text-transform:uppercase;color:var(--gold);margin-bottom:16px;letter-spacing:.5px}
+.footer__links a{display:block;font-size:14px;color:rgba(255,255,255,.85);padding:5px 0;transition:color .2s}
+.footer__links a:hover{color:var(--gold-light)}
+.footer__contact-info p{font-size:14px;color:rgba(255,255,255,.85);line-height:1.6}
+.footer__contact-info a{transition:color .2s}.footer__contact-info a:hover{color:var(--gold-light)}
+.footer__badges{display:flex;gap:12px;margin-top:18px;align-items:center;flex-wrap:wrap}
+.footer__badges img{height:64px;width:auto;background:rgba(255,255,255,.95);padding:6px;border-radius:6px}
+.footer__badge--platinum{background:rgba(255,255,255,.95);color:var(--navy);font-family:'Montserrat',sans-serif;font-weight:700;font-size:10px;line-height:1.2;text-align:center;padding:8px 12px;border-radius:6px;letter-spacing:.5px;text-transform:uppercase;min-width:80px}
+.footer__badge--platinum strong{display:block;font-size:13px;color:var(--gold)}
+.footer__bottom{background:var(--navy-deep);margin-top:48px;padding:18px 0}
+.footer__bottom .container{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.footer__copy{font-size:13px;color:rgba(255,255,255,.6)}
+.footer__legal{display:flex;gap:18px}
+.footer__legal a{font-size:13px;color:rgba(255,255,255,.6);transition:color .2s}
+.footer__legal a:hover{color:#fff}
+@media(max-width:1023px){.footer__grid{grid-template-columns:1fr 1fr;gap:32px}}
+@media(max-width:767px){.footer{padding:48px 0 0}.footer__grid{grid-template-columns:1fr;gap:32px}.footer__bottom .container{justify-content:center;text-align:center}.footer__legal{justify-content:center;flex-wrap:wrap}}
+
+@keyframes fadeSlideUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes donorPulse{0%{box-shadow:0 0 0 0 rgba(199,134,43,.6)}70%{box-shadow:0 0 0 12px rgba(199,134,43,0)}100%{box-shadow:0 0 0 0 rgba(199,134,43,0)}}
+@keyframes scrollLogos{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<!-- SVG Sprite -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<symbol id="i-phone" viewBox="0 0 24 24" stroke="none"><path fill="currentColor" d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></symbol>
+<symbol id="i-mail" viewBox="0 0 24 24" stroke="none"><path fill="currentColor" d="M2 6c0-1.1.9-2 2-2h16a2 2 0 012 2l-10 7L2 6zm0 1.5V18c0 1.1.9 2 2 2h16a2 2 0 002-2V7.5l-10 7-10-7z"/></symbol>
+<symbol id="i-fb" viewBox="0 0 24 24" stroke="none"><path fill="currentColor" d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></symbol>
+<symbol id="i-yt" viewBox="0 0 24 24" stroke="none"><path fill="currentColor" d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33 2.78 2.78 0 001.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.43zM10 15.27V8.23l6 3.52z"/></symbol>
+<symbol id="i-ig" viewBox="0 0 24 24" stroke="none"><path fill="currentColor" d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85C2.38 3.86 3.9 2.31 7.15 2.23 8.42 2.17 8.8 2.16 12 2.16zM12 0C8.74 0 8.33.01 7.05.07 2.7.27.27 2.7.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.2 4.36 2.62 6.78 6.98 6.98C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c4.35-.2 6.78-2.62 6.98-6.98.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.2-4.35-2.63-6.78-6.98-6.98C15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 100 12.32 6.16 6.16 0 000-12.32zM12 16a4 4 0 110-8 4 4 0 010 8zm6.4-11.85a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"/></symbol>
+<symbol id="i-li" viewBox="0 0 24 24" stroke="none"><path fill="currentColor" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2zM4 6a2 2 0 100-4 2 2 0 000 4z"/></symbol>
+<symbol id="i-tw" viewBox="0 0 24 24" stroke="none"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></symbol>
+<symbol id="i-tiktok" viewBox="0 0 24 24" stroke="none"><path fill="currentColor" d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005.8 20.1a6.34 6.34 0 0010.86-4.43V8.42a8.07 8.07 0 004.77 1.52v-3.4a4.85 4.85 0 01-1.84-.85z"/></symbol>
+<symbol id="i-heart" viewBox="0 0 24 24" stroke="none"><path fill="currentColor" d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></symbol>
+<symbol id="i-home" viewBox="0 0 24 24" stroke="none"><path fill="currentColor" d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></symbol>
+<symbol id="i-users" viewBox="0 0 24 24" stroke="none"><path fill="currentColor" d="M16 11c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 3-1.34 3-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></symbol>
+<symbol id="i-hands" viewBox="0 0 24 24" stroke="none"><path fill="currentColor" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.27 2 8.5 2 5.41 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></symbol>
+<symbol id="i-mappin" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+<symbol id="i-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="6 9 12 15 18 9"/></symbol>
+<symbol id="i-grad" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.657 2.686 3 6 3s6-1.343 6-3v-5"/></symbol>
+<symbol id="i-brief" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></symbol>
+<symbol id="i-heartpulse" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></symbol>
+<symbol id="i-msg" viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></symbol>
+<symbol id="i-building" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></symbol>
+<symbol id="i-hearthand" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78L12 21.23l7.78-7.78a5.5 5.5 0 000-7.78z"/><path d="M8.4 9.27a2.5 2.5 0 000 3.54 2.5 2.5 0 003.54 0"/></symbol>
+<symbol id="i-play" viewBox="0 0 24 24" stroke="none"><path fill="currentColor" d="M8 5v14l11-7z"/></symbol>
+<symbol id="i-chart" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 5-5"/></symbol>
+</svg>
+
+<!-- Utility Bar -->
+<div class="utility-bar">
+ <div class="container">
+  <div class="utility-bar__left">
+   <a href="tel:+18882642799"><svg width="14" height="14"><use href="#i-phone"/></svg>(888) 264-2799</a>
+   <a href="mailto:contactus@cohapoutreachcorporation.org"><svg width="14" height="14"><use href="#i-mail"/></svg>contactus@cohapoutreachcorporation.org</a>
+  </div>
+  <div class="utility-bar__right">
+   <a href="#" aria-label="Facebook"><svg width="16" height="16"><use href="#i-fb"/></svg></a>
+   <a href="#" aria-label="YouTube"><svg width="16" height="16"><use href="#i-yt"/></svg></a>
+   <a href="#" aria-label="Instagram"><svg width="16" height="16"><use href="#i-ig"/></svg></a>
+   <a href="#" aria-label="LinkedIn"><svg width="16" height="16"><use href="#i-li"/></svg></a>
+   <a href="#" aria-label="X (Twitter)"><svg width="16" height="16"><use href="#i-tw"/></svg></a>
+   <a href="#" aria-label="TikTok"><svg width="16" height="16"><use href="#i-tiktok"/></svg></a>
+  </div>
+ </div>
+</div>
+
+<!-- Header -->
+<header class="navbar">
+ <div class="container">
+  <a href="#" class="logo" aria-label="COHAP Outreach Corporation home">
+   <img src="bigger bird_dullercolor.png" alt="COHAP Outreach Corporation" loading="eager">
+  </a>
+  <nav class="nav-links">
+   <div class="nav-item">
+    <a href="#about" aria-haspopup="true" aria-expanded="false">Who We Are <svg class="chev" width="11" height="11"><use href="#i-chev"/></svg></a>
+    <div class="dropdown">
+     <a href="#mission">Mission</a>
+     <a href="#vision">Vision</a>
+     <a href="#goals">Goals</a>
+     <a href="#core-values">Five Core Values</a>
+     <a href="#story">Our Story</a>
+     <a href="#founder">About Our Founder</a>
+     <a href="#team">About Our Team</a>
+    </div>
+   </div>
+   <div class="nav-item">
+    <a href="#programmes" aria-haspopup="true" aria-expanded="false">Programs <svg class="chev" width="11" height="11"><use href="#i-chev"/></svg></a>
+    <div class="dropdown">
+     <a href="#housing">Housing</a>
+     <a href="#education">Education</a>
+     <a href="#entrepreneurship">Entrepreneurship</a>
+     <a href="#mental-wellness">Mental Wellness</a>
+     <a href="#mentoring">Mentoring (Ages 12&ndash;25)</a>
+    </div>
+   </div>
+   <div class="nav-item">
+    <a href="#get-help" aria-haspopup="true" aria-expanded="false">Get Help <svg class="chev" width="11" height="11"><use href="#i-chev"/></svg></a>
+    <div class="dropdown">
+     <a href="#request">Request Assistance</a>
+     <div class="dropdown__crisis">In crisis? Call <a href="tel:+18882642799" style="color:var(--gold);font-weight:700">(888) 264-2799</a></div>
+    </div>
+   </div>
+   <div class="nav-item">
+    <a href="#get-involved" aria-haspopup="true" aria-expanded="false">Get Involved <svg class="chev" width="11" height="11"><use href="#i-chev"/></svg></a>
+    <div class="dropdown">
+     <a href="#advisory">Join Our Advisory Board</a>
+     <a href="#committees">Join a Committee</a>
+     <a href="#volunteer-events">Volunteer for Events Registration</a>
+     <a href="#vendor">Community Vendor Registration</a>
+     <a href="#volunteer">Volunteer Opportunities</a>
+     <a href="#sponsor">Become a Sponsor</a>
+    </div>
+   </div>
+   <div class="nav-item"><a href="#events">Events</a></div>
+   <div class="nav-item">
+    <a href="#news" aria-haspopup="true" aria-expanded="false">News &amp; Impact <svg class="chev" width="11" height="11"><use href="#i-chev"/></svg></a>
+    <div class="dropdown">
+     <a href="#press">Press Releases</a>
+     <a href="#media">Media Appearances</a>
+     <a href="#gallery">Gallery</a>
+     <a href="#newsletters">Newsletters</a>
+     <div class="dropdown__group">
+      <a href="#reports">Impact Reports</a>
+      <div class="dropdown__sub">
+       <a href="#report-2025">2025 Report</a>
+       <a href="#report-2024">2024 Report</a>
+       <a href="#report-2023">2023 Report</a>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="nav-item"><a href="#contact">Contact Us</a></div>
+  </nav>
+  <a href="#donate" class="nav-donate nav-donate-desktop"><svg width="16" height="16"><use href="#i-heart"/></svg> Donate</a>
+  <button class="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+ </div>
+</header>
+
+<!-- Mobile nav -->
+<div class="mobile-overlay"></div>
+<nav class="mobile-nav">
+ <div class="mobile-nav__header">
+  <a href="#" class="logo" aria-label="COHAP Outreach Corporation home"><img src="bigger bird_dullercolor.png" alt="COHAP" style="height:56px;width:auto"></a>
+  <button class="mobile-nav__close" aria-label="Close menu">&times;</button>
+ </div>
+ <div class="mobile-nav__body">
+  <div class="mobile-nav__item"><button class="mobile-nav__toggle" aria-expanded="false">Who We Are <svg class="chev"><use href="#i-chev"/></svg></button><div class="mobile-nav__sub"><a href="#mission">Mission</a><a href="#vision">Vision</a><a href="#goals">Goals</a><a href="#core-values">Five Core Values</a><a href="#story">Our Story</a><a href="#founder">About Our Founder</a><a href="#team">About Our Team</a></div></div>
+  <div class="mobile-nav__item"><button class="mobile-nav__toggle" aria-expanded="false">Programs <svg class="chev"><use href="#i-chev"/></svg></button><div class="mobile-nav__sub"><a href="#housing">Housing</a><a href="#education">Education</a><a href="#entrepreneurship">Entrepreneurship</a><a href="#mental-wellness">Mental Wellness</a><a href="#mentoring">Mentoring (12&ndash;25)</a></div></div>
+  <div class="mobile-nav__item"><button class="mobile-nav__toggle" aria-expanded="false">Get Help <svg class="chev"><use href="#i-chev"/></svg></button><div class="mobile-nav__sub"><a href="#request">Request Assistance</a></div></div>
+  <div class="mobile-nav__item"><button class="mobile-nav__toggle" aria-expanded="false">Get Involved <svg class="chev"><use href="#i-chev"/></svg></button><div class="mobile-nav__sub"><a href="#advisory">Join Advisory Board</a><a href="#committees">Join a Committee</a><a href="#volunteer-events">Volunteer for Events Registration</a><a href="#vendor">Community Vendor Registration</a><a href="#volunteer">Volunteer Opportunities</a><a href="#sponsor">Become a Sponsor</a></div></div>
+  <div class="mobile-nav__item"><a href="#events">Events</a></div>
+  <div class="mobile-nav__item"><button class="mobile-nav__toggle" aria-expanded="false">News &amp; Impact <svg class="chev"><use href="#i-chev"/></svg></button><div class="mobile-nav__sub"><a href="#press">Press Releases</a><a href="#media">Media Appearances</a><a href="#gallery">Gallery</a><a href="#newsletters">Newsletters</a><div class="mobile-nav__sub-group">Impact Reports</div><a href="#report-2025">2025 Report</a><a href="#report-2024">2024 Report</a><a href="#report-2023">2023 Report</a></div></div>
+  <div class="mobile-nav__item"><a href="#contact">Contact Us</a></div>
+ </div>
+ <div class="mobile-nav__footer"><a href="#donate" class="nav-donate"><svg width="16" height="16"><use href="#i-heart"/></svg> Donate Now</a></div>
+</nav>
+
+<main id="main">
+
+<!-- Hero -->
+<section class="hero">
+ <div class="container">
+  <div class="hero__content">
+   <span class="hero__eyebrow">A 501(c)(3) Nonprofit</span>
+   <h1 class="hero__headline">Breaking the Cycle of Homelessness.<span>Restoring hope &amp; building futures across Greater Houston.</span></h1>
+   <p class="hero__subheadline">COHAP Outreach Corporation walks alongside veterans, domestic violence survivors, formerly incarcerated individuals, and aged-out foster youth &mdash; providing structured pathways through housing, education, entrepreneurship, and mentoring.</p>
+   <div class="hero__ctas">
+    <a href="#donate" class="btn btn--cta"><svg width="18" height="18"><use href="#i-heart"/></svg> Donate Now</a>
+    <a href="#programmes" class="btn btn--ghost">How We Help <span class="btn-arrow">&rarr;</span></a>
+   </div>
+  </div>
+ </div>
+ <div class="hero__badges">
+  <div class="hero__badge"><img src="images/charity-badge.png" alt="Charity Navigator Four-Star Rating"></div>
+  <div class="hero__badge--platinum">Candid<br><strong>Platinum</strong><br>Transparency<br>2025</div>
+ </div>
+</section>
+
+<!-- Quick Pathways -->
+<section class="pathways reveal-section" id="get-help">
+ <div class="container">
+  <div class="pathways__grid">
+   <div class="pathway-card">
+    <div class="pathway-card__icon"><svg width="32" height="32"><use href="#i-hands"/></svg></div>
+    <h4>I Need Help</h4>
+    <p>For veterans, survivors of domestic violence, returning citizens, or youth ageing out of foster care &mdash; we're here. Request assistance confidentially.</p>
+    <a href="#request" class="pathway-card__link">Request Assistance &rarr;</a>
+   </div>
+   <div class="pathway-card" id="donate">
+    <div class="pathway-card__icon"><svg width="32" height="32"><use href="#i-hearthand"/></svg></div>
+    <h4>I Want to Give</h4>
+    <p>Your donation directly funds housing, education, and mentoring. Every dollar creates a pathway out of homelessness.</p>
+    <a href="#donate" class="pathway-card__link">Donate &rarr;</a>
+   </div>
+   <div class="pathway-card" id="get-involved">
+    <div class="pathway-card__icon"><svg width="32" height="32"><use href="#i-users"/></svg></div>
+    <h4>I Want to Volunteer</h4>
+    <p>Join our team of dedicated volunteers. From committees to events, your time and skills can transform lives in your community.</p>
+    <a href="#volunteer" class="pathway-card__link">Get Involved &rarr;</a>
+   </div>
+   <div class="pathway-card" id="sponsor">
+    <div class="pathway-card__icon"><svg width="32" height="32"><use href="#i-building"/></svg></div>
+    <h4>I Want to Sponsor</h4>
+    <p>Sponsor a hygiene kit, an apartment, the Back-to-School Bash, or a campaign. All sponsorships in one place.</p>
+    <a href="#sponsor" class="pathway-card__link">Become a Sponsor &rarr;</a>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- Mission Quote -->
+<section class="mission reveal-section" id="mission">
+ <div class="container">
+  <div class="mission__inner">
+   <span class="mission__eyebrow">Our Mission</span>
+   <p class="mission__quote">To break the cycle of recidivism and homelessness through support, advocacy, and education by providing a structured plan and pathway for formerly incarcerated individuals, domestic violence survivors, veterans, and aged-out foster care young adults.</p>
+   <p class="mission__attr">&mdash; COHAP Outreach Corporation</p>
+  </div>
+ </div>
+</section>
+
+<!-- Active Campaign -->
+<section class="campaign reveal-section">
+ <div class="container">
+  <div class="campaign__grid">
+   <div class="campaign__image"><h3>BACK TO SCHOOL<br>BASH 2026</h3><p>Supporting 500+ Children</p></div>
+   <div class="campaign__content">
+    <p class="campaign__eyebrow">Active Campaign</p>
+    <h2>Back to School Bash 2026</h2>
+    <p>Help us provide school supplies, hygiene kits, and new shoes to 500+ disadvantaged children in the Greater Houston area. Your $25 sponsors one child's complete back-to-school kit.</p>
+    <div class="progress-wrapper">
+     <div class="progress-labels"><span class="raised">$390,000 raised</span><span class="goal">$600,000 goal</span></div>
+     <div class="progress-track"><div class="progress-fill" style="--progress:65%"></div></div>
+    </div>
+    <div class="campaign__buttons">
+     <a href="#donate" class="btn btn--cta">Contribute to This Campaign</a>
+     <a href="#sponsor" class="btn btn--outline">Sponsorship Options</a>
+    </div>
+    <a href="#campaigns" class="campaign__secondary">View all active campaigns &rarr;</a>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- Impact Stats -->
+<section class="impact reveal-section">
+ <div class="container">
+  <div class="impact__header">
+   <h2>Our Community Impact</h2>
+   <p>Real numbers from the families we walk alongside every day.</p>
+  </div>
+  <div class="impact__grid">
+   <div class="impact__item">
+    <div class="impact__icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#2D3D7B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5L12 4l9 5.5"/><path d="M5 8.5V18a1 1 0 001 1h12a1 1 0 001-1V8.5"/><rect x="9" y="13" width="6" height="6" rx=".5"/></svg></div>
+    <div class="impact__number"><span class="counter" data-target="500">0</span><span class="impact__suffix">+</span></div>
+    <p class="impact__label">Families Served Annually</p>
+   </div>
+   <div class="impact__item">
+    <div class="impact__icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#2D3D7B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="3"/><path d="M9 12c-3.5 0-6 1.5-6 3.5V17h12v-1.5c0-2-2.5-3.5-6-3.5z"/><circle cx="17" cy="8" r="2.5"/><path d="M17 12.5c2.5.3 5 1.4 5 3V17h-4"/></svg></div>
+    <div class="impact__number"><span class="counter" data-target="2000">0</span><span class="impact__suffix">+</span></div>
+    <p class="impact__label">Volunteers Engaged</p>
+   </div>
+   <div class="impact__item">
+    <div class="impact__icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#2D3D7B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 11H22v7a2 2 0 01-2 2h-3v-9h1.5z"/><path d="M3.5 11H2v7a2 2 0 002 2h3v-9H5.5z"/><path d="M7 11l2.5-4L12 9l2.5-2L17 11"/><path d="M7 11v9"/><path d="M17 11v9"/><path d="M7 15h10"/></svg></div>
+    <div class="impact__number"><span class="counter" data-target="100">0</span><span class="impact__suffix">+</span></div>
+    <p class="impact__label">Community Partners</p>
+   </div>
+   <div class="impact__item">
+    <div class="impact__icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#2D3D7B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.5"/><circle cx="12" cy="12" r="2"/></svg></div>
+    <div class="impact__number"><span class="impact__prefix">$</span><span class="counter" data-target="600">0</span><span class="impact__suffix">K</span></div>
+    <p class="impact__label">Housing Campaign Goal</p>
+   </div>
+  </div>
+  <div class="impact__cta">
+   <a href="#reports" class="btn btn--outline">View Annual Impact Reports <span class="btn-arrow">&rarr;</span></a>
+  </div>
+ </div>
+</section>
+
+<!-- Programs -->
+<section class="programmes reveal-section" id="programmes">
+ <div class="container">
+  <div class="programmes__header">
+   <h2>How We Help</h2>
+   <p>Five structured programs designed to help individuals and families rebuild their lives with dignity.</p>
+  </div>
+  <div class="programmes__grid">
+   <div class="programme-card">
+    <div class="programme-card__header" style="--card-bg:url('images/housing.jpg')">
+     <div class="programme-card__icon"><svg width="22" height="22"><use href="#i-home"/></svg></div>
+    </div>
+    <div class="programme-card__body">
+     <h4>Housing</h4>
+     <p>Emergency shelter, transitional housing, and homebuyer education for long-term stability.</p>
+     <a href="#housing" class="programme-card__link">Learn More &rarr;</a>
+    </div>
+   </div>
+   <div class="programme-card">
+    <div class="programme-card__header" style="--card-bg:url('images/education.jpg')">
+     <div class="programme-card__icon"><svg width="22" height="22"><use href="#i-grad"/></svg></div>
+    </div>
+    <div class="programme-card__body">
+     <h4>Education</h4>
+     <p>GED prep, vocational training, financial literacy, and life-skills coaching for reintegration.</p>
+     <a href="#education" class="programme-card__link">Learn More &rarr;</a>
+    </div>
+   </div>
+   <div class="programme-card">
+    <div class="programme-card__header" style="--card-bg:url('images/entrepreneurship.jpg')">
+     <div class="programme-card__icon"><svg width="22" height="22"><use href="#i-brief"/></svg></div>
+    </div>
+    <div class="programme-card__body">
+     <h4>Entrepreneurship</h4>
+     <p>Mentoring, business coaching, and seminars from successful entrepreneurs to launch your venture.</p>
+     <a href="#entrepreneurship" class="programme-card__link">Learn More &rarr;</a>
+    </div>
+   </div>
+   <div class="programme-card">
+    <div class="programme-card__header" style="--card-bg:url('images/wellness.jpg')">
+     <div class="programme-card__icon"><svg width="22" height="22"><use href="#i-heartpulse"/></svg></div>
+    </div>
+    <div class="programme-card__body">
+     <h4>Mental Wellness</h4>
+     <p>Stress management, mindfulness, addiction support, and holistic practices for emotional recovery.</p>
+     <a href="#mental-wellness" class="programme-card__link">Learn More &rarr;</a>
+    </div>
+   </div>
+   <div class="programme-card">
+    <div class="programme-card__header" style="--card-bg:url('images/mentoring.jpg')">
+     <div class="programme-card__icon"><svg width="22" height="22"><use href="#i-msg"/></svg></div>
+    </div>
+    <div class="programme-card__body">
+     <h4>Mentoring</h4>
+     <p>Youth mentoring for ages 12&ndash;25: GED prep, career exploration, college guidance, and community service.</p>
+     <a href="#mentoring" class="programme-card__link">Learn More &rarr;</a>
+    </div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- Facts -->
+<section class="facts reveal-section">
+ <div class="container">
+  <div class="facts__inner">
+   <div class="facts__content">
+    <h3>The Reality Behind Our Mission</h3>
+    <p>Homelessness, domestic violence, recidivism, and foster care aging-out aren't isolated issues &mdash; they intersect in the lives of the people we serve. The facts below tell part of the story.</p>
+    <div class="facts__stats">
+     <div class="facts__stat"><span class="facts__stat-num">582K+</span><span class="facts__stat-label">Americans experience homelessness on any given night</span></div>
+     <div class="facts__stat"><span class="facts__stat-num">25%</span><span class="facts__stat-label">of homeless adults are veterans or DV survivors</span></div>
+     <div class="facts__stat"><span class="facts__stat-num">1 in 4</span><span class="facts__stat-label">aged-out foster youth experience homelessness within 4 years</span></div>
+    </div>
+   </div>
+   <div class="facts__action">
+    <a href="#facts" class="btn btn--solid"><svg width="16" height="16"><use href="#i-chart"/></svg> Check the Facts</a>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- Story / Video -->
+<section class="story reveal-section" id="story">
+ <div class="container">
+  <div class="story__grid">
+   <div class="story__content">
+    <span class="story__eyebrow">Our Story</span>
+    <h2>See the work behind the mission.</h2>
+    <p>Hear directly from the families, volunteers, and partners who make COHAP's work possible &mdash; and learn why every dollar matters to the people we serve.</p>
+    <p>From our annual Back-to-School Bash to apartment sponsorships and crisis assistance, every program is built around one simple idea: real people, real pathways forward.</p>
+    <a href="#about" class="btn btn--cta">About Our Founder &amp; Team</a>
+   </div>
+   <div class="story__video" role="button" tabindex="0" aria-label="Play COHAP story video">
+    <div class="story__play"><div class="story__play-btn"><svg viewBox="0 0 24 24"><use href="#i-play"/></svg></div></div>
+    <div class="story__caption">Why we do this work &mdash; a message from our founder, Natasha Wilson</div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- Testimonial -->
+<section class="testimonial reveal-section">
+ <div class="container">
+  <div class="testimonial__inner">
+   <p class="testimonial__quote">"I'm a survivor of domestic violence. I relocated to Texas last year with my children and left everything behind to start a new life. I lived in my car for 60 days with my children after money ran out. COHAP Outreach Corporation has assisted me with everything I needed. Natasha Wilson shows so much compassion and is still assisting me to this day."</p>
+   <p class="testimonial__attr">&mdash; Letitia, COHAP Program Participant</p>
+   <div class="testimonial__dots">
+    <div class="testimonial__dot active"></div>
+    <div class="testimonial__dot"></div>
+    <div class="testimonial__dot"></div>
+    <div class="testimonial__dot"></div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- Events + News -->
+<section class="events-news reveal-section" id="events">
+ <div class="container">
+  <div class="events-news__grid">
+   <div>
+    <h2>Upcoming Events</h2>
+    <div class="event-card">
+     <img src="images/news-carshow.jpg" alt="Car Show" class="event-card__img" loading="lazy">
+     <div class="event-card__inner">
+      <div class="event-card__date"><span class="event-card__month">Apr</span><span class="event-card__day">15</span></div>
+      <div class="event-card__body">
+       <h4>Annual Car Show &amp; Music</h4>
+       <p class="event-card__location"><svg width="14" height="14"><use href="#i-mappin"/></svg>Greater Houston Area</p>
+       <a href="#" class="event-card__link">Register &rarr;</a>
+      </div>
+     </div>
+    </div>
+    <div class="event-card">
+     <img src="images/school-bash.jpg" alt="Back to School Bash" class="event-card__img" loading="lazy">
+     <div class="event-card__inner">
+      <div class="event-card__date"><span class="event-card__month">Jun</span><span class="event-card__day">22</span></div>
+      <div class="event-card__body">
+       <h4>Back to School Bash 2026</h4>
+       <p class="event-card__location"><svg width="14" height="14"><use href="#i-mappin"/></svg>Sweetwater Point, Houston</p>
+       <a href="#" class="event-card__link">Register &rarr;</a>
+      </div>
+     </div>
+    </div>
+    <div class="event-card">
+     <img src="images/news-turkey.jpg" alt="Operation Turkey" class="event-card__img" loading="lazy">
+     <div class="event-card__inner">
+      <div class="event-card__date"><span class="event-card__month">Nov</span><span class="event-card__day">26</span></div>
+      <div class="event-card__body">
+       <h4>Operation Turkey 2026</h4>
+       <p class="event-card__location"><svg width="14" height="14"><use href="#i-mappin"/></svg>Tomball, TX</p>
+       <a href="#" class="event-card__link">Register &rarr;</a>
+      </div>
+     </div>
+    </div>
+    <div class="section-more"><a href="#events" class="btn btn--outline">View All Events &rarr;</a></div>
+   </div>
+   <div id="news">
+    <h2>Latest News</h2>
+    <div class="news-card">
+     <img src="images/news-ribbon.jpg" alt="Ribbon cutting ceremony" class="news-card__img" loading="lazy">
+     <div class="news-card__content">
+      <span class="news-card__date">Mar 2026</span>
+      <h4>Ribbon Cutting Ceremony &amp; Press Conference</h4>
+      <p>COHAP celebrated a major milestone with the grand opening of our new community resource centre.</p>
+      <a href="#" class="news-card__link">Read More &rarr;</a>
+     </div>
+    </div>
+    <div class="news-card">
+     <img src="images/news-carshow.jpg" alt="Home for Hope Car Show" class="news-card__img" loading="lazy">
+     <div class="news-card__content">
+      <span class="news-card__date">Feb 2026</span>
+      <h4>Home for Hope Car Show: A Huge Success!</h4>
+      <p>Our annual Home for Hope Car Show brought together over 200 classic cars and thousands of community members.</p>
+      <a href="#" class="news-card__link">Read More &rarr;</a>
+     </div>
+    </div>
+    <div class="news-card">
+     <img src="images/news-turkey.jpg" alt="Operation Turkey food drive" class="news-card__img" loading="lazy">
+     <div class="news-card__content">
+      <span class="news-card__date">Jan 2026</span>
+      <h4>Operation Turkey &mdash; Feeding Families with Love</h4>
+      <p>Volunteers and partners came together to provide Thanksgiving meals to hundreds of families in need.</p>
+      <a href="#" class="news-card__link">Read More &rarr;</a>
+     </div>
+    </div>
+    <div class="section-more"><a href="#news" class="btn btn--outline">View All News &rarr;</a></div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- Gallery preview -->
+<section class="gallery reveal-section" id="gallery">
+ <div class="container">
+  <div class="gallery__header">
+   <div>
+    <h2>From the Gallery</h2>
+    <p>A glimpse at the events, volunteers, and families that make COHAP's mission real every single day.</p>
+   </div>
+   <a href="#gallery" class="btn btn--outline">View Full Gallery &rarr;</a>
+  </div>
+  <div class="gallery__grid">
+   <div class="gallery__item" style="background-image:url('images/volunteers.jpg')" role="img" aria-label="Volunteers serving the community"></div>
+   <div class="gallery__item" style="background-image:url('images/news-ribbon.jpg')" role="img" aria-label="Ribbon cutting ceremony"></div>
+   <div class="gallery__item" style="background-image:url('images/news-carshow.jpg')" role="img" aria-label="Annual car show"></div>
+   <div class="gallery__item" style="background-image:url('images/school-bash.jpg')" role="img" aria-label="Back to School Bash"></div>
+   <div class="gallery__item" style="background-image:url('images/news-turkey.jpg')" role="img" aria-label="Operation Turkey"></div>
+  </div>
+ </div>
+</section>
+
+<!-- Partners -->
+<section class="partners reveal-section">
+ <div class="container">
+  <div class="partners__header">
+   <h2>Our Partners &amp; Sponsors</h2>
+   <p>We could not do this work without the generosity of our community partners.</p>
+  </div>
+ </div>
+ <div class="partners__carousel">
+  <div class="partners__track">
+   <div class="partner-logo">Costco</div><div class="partner-logo">Kroger</div><div class="partner-logo">Walmart</div><div class="partner-logo">H-E-B</div><div class="partner-logo">Pepsi</div><div class="partner-logo">HCC</div><div class="partner-logo">TX Children's Health</div><div class="partner-logo">Marines</div><div class="partner-logo">EPI</div><div class="partner-logo">Chick-fil-A</div>
+   <div class="partner-logo">Costco</div><div class="partner-logo">Kroger</div><div class="partner-logo">Walmart</div><div class="partner-logo">H-E-B</div><div class="partner-logo">Pepsi</div><div class="partner-logo">HCC</div><div class="partner-logo">TX Children's Health</div><div class="partner-logo">Marines</div><div class="partner-logo">EPI</div><div class="partner-logo">Chick-fil-A</div>
+  </div>
+ </div>
+ <div class="container">
+  <div class="section-more"><a href="#partners" class="btn btn--outline">View All Partners &rarr;</a></div>
+ </div>
+</section>
+
+<!-- Newsletter -->
+<section class="newsletter reveal-section">
+ <div class="container">
+  <div class="newsletter__inner">
+   <h3>Stay Connected</h3>
+   <p>Subscribe to our newsletter and be the first to know about events, programs, and ways to get involved.</p>
+   <form class="newsletter__form">
+    <input type="email" placeholder="Enter your email address" required aria-label="Email address">
+    <button type="submit">Subscribe</button>
+   </form>
+   <p class="newsletter__privacy">We respect your privacy. Unsubscribe at any time.</p>
+  </div>
+ </div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<div class="footer-wave"><svg viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0,20 C360,60 720,0 1080,40 C1260,55 1380,25 1440,30 L1440,60 L0,60 Z" fill="#2D3D7B"/></svg></div>
+<footer class="footer" id="contact">
+ <div class="container">
+  <div class="footer__grid">
+   <div class="footer__brand">
+    <a href="#" class="logo" aria-label="COHAP Outreach Corporation home">
+     <img src="bigger bird_dullercolor.png" alt="COHAP Outreach Corporation">
+    </a>
+    <p class="footer__ein">EIN: 85-1331008</p>
+    <p class="footer__tax">A 501(c)(3) charitable organization. Contributions are tax-deductible for income, gift, and estate taxes.</p>
+    <div class="footer__social" aria-label="Follow us on social media">
+     <a href="#" aria-label="Facebook"><svg width="20" height="20"><use href="#i-fb"/></svg></a>
+     <a href="#" aria-label="YouTube"><svg width="20" height="20"><use href="#i-yt"/></svg></a>
+     <a href="#" aria-label="Instagram"><svg width="20" height="20"><use href="#i-ig"/></svg></a>
+     <a href="#" aria-label="LinkedIn"><svg width="20" height="20"><use href="#i-li"/></svg></a>
+     <a href="#" aria-label="X (Twitter)"><svg width="20" height="20"><use href="#i-tw"/></svg></a>
+     <a href="#" aria-label="TikTok"><svg width="20" height="20"><use href="#i-tiktok"/></svg></a>
+    </div>
+   </div>
+   <div>
+    <h5>Quick Links</h5>
+    <div class="footer__links">
+     <a href="#about">Who We Are</a>
+     <a href="#programmes">Programs</a>
+     <a href="#get-help">Get Help</a>
+     <a href="#get-involved">Get Involved</a>
+     <a href="#events">Events</a>
+     <a href="#news">News &amp; Impact</a>
+     <a href="#gallery">Gallery</a>
+     <a href="#contact">Contact Us</a>
+    </div>
+   </div>
+   <div>
+    <h5>Get Involved</h5>
+    <div class="footer__links">
+     <a href="#advisory">Join Advisory Board</a>
+     <a href="#committees">Join a Committee</a>
+     <a href="#volunteer-events">Volunteer for Events</a>
+     <a href="#vendor">Vendor Registration</a>
+     <a href="#sponsor">Become a Sponsor</a>
+     <a href="#donate">Donate</a>
+    </div>
+   </div>
+   <div>
+    <h5>Contact</h5>
+    <div class="footer__contact-info">
+     <p>P.O. Box 145<br>Tomball, TX 77377</p>
+     <p><a href="tel:+18882642799">(888) 264-2799</a></p>
+     <p><a href="mailto:contactus@cohapoutreachcorporation.org">contactus@cohapoutreachcorporation.org</a></p>
+    </div>
+    <div class="footer__badges">
+     <img src="images/charity-badge.png" alt="Charity Navigator Four-Star Rating">
+     <div class="footer__badge--platinum">Candid<br><strong>Platinum</strong><br>Transparency<br>2025</div>
+    </div>
+   </div>
+  </div>
+ </div>
+ <div class="footer__bottom">
+  <div class="container">
+   <span class="footer__copy">&copy; 2026 COHAP OUTREACH CORPORATION &middot; All Rights Reserved</span>
+   <div class="footer__legal">
+    <a href="#">Anti-Discrimination Policy</a>
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms &amp; Conditions</a>
+   </div>
+  </div>
+ </div>
+</footer>
+
+<script>
+(function(){
+ var h=document.querySelector('.hamburger'),
+     mn=document.querySelector('.mobile-nav'),
+     mo=document.querySelector('.mobile-overlay'),
+     mc=document.querySelector('.mobile-nav__close');
+ function openNav(){h.classList.add('active');mn.classList.add('active');mo.classList.add('active');mo.style.display='block';h.setAttribute('aria-expanded','true');document.body.style.overflow='hidden'}
+ function closeNav(){h.classList.remove('active');mn.classList.remove('active');mo.classList.remove('active');h.setAttribute('aria-expanded','false');document.body.style.overflow='';setTimeout(function(){if(!mo.classList.contains('active'))mo.style.display='none'},300)}
+ h.addEventListener('click',function(){mn.classList.contains('active')?closeNav():openNav()});
+ mo.addEventListener('click',closeNav);mc.addEventListener('click',closeNav);
+ document.querySelectorAll('.mobile-nav__toggle').forEach(function(b){b.addEventListener('click',function(){var s=this.nextElementSibling,o=s.classList.contains('active');this.classList.toggle('active',!o);s.classList.toggle('active',!o);this.setAttribute('aria-expanded',String(!o))})});
+ document.querySelectorAll('.mobile-nav a[href^="#"]').forEach(function(l){l.addEventListener('click',closeNav)});
+
+ var pf=document.querySelector('.progress-fill'),
+     cs=document.querySelectorAll('.counter'),
+     ca=false;
+ function animC(){if(ca)return;ca=true;cs.forEach(function(e){var t=parseInt(e.getAttribute('data-target'),10),d=2000,st=performance.now();function step(n){var p=Math.min((n-st)/d,1),v=1-Math.pow(1-p,3);e.textContent=Math.round(v*t).toLocaleString();if(p<1)requestAnimationFrame(step)}requestAnimationFrame(step)})}
+
+ if('IntersectionObserver' in window){
+  var ro=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');ro.unobserve(e.target)}})},{threshold:.15});
+  document.querySelectorAll('.reveal-section').forEach(function(s){ro.observe(s)});
+  if(pf){var po=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in-view');po.unobserve(e.target)}})},{threshold:.2});po.observe(pf)}
+  var is=document.querySelector('.impact');
+  if(is){var co=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){animC();co.unobserve(e.target)}})},{threshold:.2});co.observe(is)}
+ }else{
+  document.querySelectorAll('.reveal-section').forEach(function(s){s.classList.add('visible')});
+  if(pf)pf.classList.add('in-view');animC()
+ }
+
+ document.querySelectorAll('.nav-item').forEach(function(i){var a=i.querySelector(':scope > a[aria-haspopup]');if(!a)return;i.addEventListener('mouseenter',function(){a.setAttribute('aria-expanded','true')});i.addEventListener('mouseleave',function(){a.setAttribute('aria-expanded','false')})});
+
+ // Testimonial dot indicator (visual only, single quote shown)
+ var dots=document.querySelectorAll('.testimonial__dot');
+ dots.forEach(function(d,i){d.addEventListener('click',function(){dots.forEach(function(x){x.classList.remove('active')});d.classList.add('active')})});
+})();
+</script>
+</body>
+</html>
