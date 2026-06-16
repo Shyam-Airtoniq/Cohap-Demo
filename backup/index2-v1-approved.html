@@ -18,8 +18,6 @@
  --gold:#c7862b;
  --gold-light:#efac73;
  --gold-deep:#8d4f36;
- --brown:#5C3A26;       /* footer brown-gold base (placeholder pending exact code from existing site) */
- --brown-deep:#3F2716;  /* darker footer accent */
  --white:#fff;
  --light-gray:#F4F4F6;
  --soft-gray:#E9E8E8;
@@ -71,11 +69,11 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(-
 .navbar__brand-row{padding:14px 0 10px;border-bottom:1px solid #eee;background:linear-gradient(180deg,#fff 0%,#fafbff 100%);max-height:260px;overflow:hidden;transition:max-height .35s cubic-bezier(.4,0,.2,1),padding .35s cubic-bezier(.4,0,.2,1),opacity .25s ease,border-color .3s ease;will-change:max-height}
 .navbar.scrolled .navbar__brand-row{max-height:0;padding-top:0;padding-bottom:0;opacity:0;border-bottom-color:transparent;pointer-events:none}
 .navbar__brand-row .container{display:flex;align-items:center;justify-content:space-between;gap:24px}
-.logo{display:flex;align-items:center;gap:20px;flex-shrink:0}
-.logo img{height:130px;width:auto;display:block;filter:drop-shadow(0 4px 12px rgba(45,61,123,.22))}
-.logo__text{display:flex;flex-direction:column;white-space:nowrap}
-.logo__name{font-family:'Montserrat',sans-serif;font-size:24px;font-weight:800;color:var(--navy);line-height:1.05;letter-spacing:1.2px;text-transform:uppercase}
-.logo__tagline{font-family:'Open Sans',sans-serif;font-size:13px;font-style:italic;color:var(--gold);margin-top:6px;letter-spacing:.6px}
+.logo{display:flex;align-items:center;gap:18px;flex-shrink:0}
+.logo img{height:108px;width:auto;display:block;filter:drop-shadow(0 4px 10px rgba(45,61,123,.18))}
+.logo__text{display:flex;flex-direction:column}
+.logo__name{font-family:'Montserrat',sans-serif;font-size:26px;font-weight:800;color:var(--navy);line-height:1.05;letter-spacing:.5px}
+.logo__tagline{font-family:'Open Sans',sans-serif;font-size:13px;font-style:italic;color:var(--gold);margin-top:6px;letter-spacing:.5px}
 .navbar__brand-actions{display:flex;align-items:center;gap:24px}
 .navbar__contact{display:flex;flex-direction:column;align-items:flex-end;gap:6px;font-size:13px}
 .navbar__contact a{display:inline-flex;align-items:center;gap:8px;color:var(--navy);font-weight:600;transition:color .2s}
@@ -128,10 +126,8 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(-
 .mobile-nav__footer .nav-donate{width:100%;justify-content:center;padding:16px;font-size:16px;display:flex}
 @media(max-width:1199px){.nav-links,.nav-donate-desktop{display:none}.hamburger{display:flex}.mobile-overlay.active{display:block}.navbar__nav-row{display:none}.navbar__brand-row{padding:10px 0;border-bottom:none}.navbar.scrolled .navbar__brand-row{max-height:260px;padding:10px 0;opacity:1;pointer-events:auto}}
 @media(min-width:1200px){.mobile-overlay,.mobile-nav,.hamburger{display:none!important}}
-@media(max-width:1023px){.logo img{height:100px}.logo__name{font-size:20px}.logo__tagline{font-size:12px}}
-@media(max-width:899px){.navbar__contact{display:none}.logo img{height:88px}.logo__name{font-size:18px;letter-spacing:.8px}.logo__tagline{font-size:11px}}
-@media(max-width:599px){.logo img{height:68px}.logo{gap:12px}.logo__name{font-size:14px;letter-spacing:.5px}.logo__tagline{font-size:10px}}
-@media(max-width:419px){.logo__text{display:none}.logo img{height:60px}}
+@media(max-width:899px){.navbar__contact{display:none}.logo img{height:84px}.logo__name{font-size:20px}.logo__tagline{font-size:11px}}
+@media(max-width:599px){.logo img{height:64px}.logo{gap:12px}.logo__name{font-size:16px}}
 
 /* Hero — uses positive community imagery (no bars/prison feel) */
 .hero{width:100%;min-height:88vh;background:linear-gradient(120deg,rgba(45,61,123,.92) 0%,rgba(45,61,123,.65) 55%,rgba(199,134,43,.4) 100%),url('images/hero-bg.jpg') center/cover no-repeat,#2D3D7B;display:flex;align-items:center;position:relative;overflow:hidden}
@@ -143,12 +139,11 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(-
 .hero__headline span{display:block;color:var(--gold-light);font-size:28px;font-weight:700;margin-top:10px;text-shadow:0 2px 8px rgba(0,0,0,.3)}
 .hero__subheadline{font-size:18px;color:rgba(255,255,255,.95);line-height:1.65;max-width:640px;margin-top:24px;opacity:0;animation:fadeSlideUp 800ms ease 250ms forwards}
 .hero__ctas{display:flex;gap:16px;margin-top:36px;flex-wrap:wrap;opacity:0;animation:fadeSlideUp 800ms ease 400ms forwards}
-.hero__badges{position:absolute;bottom:40px;right:40px;z-index:2;display:flex;gap:16px;align-items:center}
-.hero__badge{background:rgba(255,255,255,.97);padding:12px;border-radius:10px;box-shadow:0 6px 22px rgba(0,0,0,.28);transition:transform .25s ease}
-.hero__badge:hover{transform:translateY(-2px)}
-.hero__badge img{height:92px;width:auto;display:block}
-.hero__badge--platinum{background:rgba(255,255,255,.97);color:var(--navy);font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;line-height:1.25;text-align:center;padding:16px 20px;border-radius:10px;letter-spacing:.6px;text-transform:uppercase;box-shadow:0 6px 22px rgba(0,0,0,.28);min-width:120px}
-.hero__badge--platinum strong{display:block;font-size:18px;color:var(--gold);margin:2px 0}
+.hero__badges{position:absolute;bottom:40px;right:40px;z-index:2;display:flex;gap:14px;align-items:center}
+.hero__badge{background:rgba(255,255,255,.95);padding:8px;border-radius:8px;box-shadow:0 4px 14px rgba(0,0,0,.2)}
+.hero__badge img{height:60px;width:auto;display:block}
+.hero__badge--platinum{background:rgba(255,255,255,.95);color:var(--navy);font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;line-height:1.2;text-align:center;padding:10px 14px;border-radius:8px;letter-spacing:.5px;text-transform:uppercase}
+.hero__badge--platinum strong{display:block;font-size:14px;color:var(--gold)}
 @media(max-width:1023px){.hero{min-height:78vh}.hero__headline{font-size:40px}.hero__headline span{font-size:22px}.hero__subheadline{font-size:16px}}
 @media(max-width:767px){.hero{min-height:72vh}.hero__headline{font-size:30px}.hero__headline span{font-size:18px}.hero__ctas{flex-direction:column}.hero__ctas .btn{width:100%}.hero__badges{display:none}}
 
@@ -199,23 +194,6 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(-
 .campaign__secondary:hover{color:var(--gold)}
 @media(max-width:1023px){.campaign__grid{grid-template-columns:1fr}.campaign__image{height:300px}}
 @media(max-width:767px){.campaign{padding:48px 0}.campaign__content h2{font-size:26px}.campaign__buttons .btn{width:100%}}
-
-/* Sponsorship packages */
-.sponsorships{background:#fff;padding:80px 0}
-.sponsorships__header{text-align:center;margin-bottom:44px;max-width:720px;margin-left:auto;margin-right:auto}
-.sponsorships__eyebrow{font-family:'Montserrat',sans-serif;font-size:13px;text-transform:uppercase;letter-spacing:2px;color:var(--gold);font-weight:700;margin-bottom:8px}
-.sponsorships__header h2{font-size:32px;font-weight:800;color:var(--navy)}
-.sponsorships__header p{font-size:16px;color:var(--mid-gray);margin-top:10px;line-height:1.6}
-.sponsorships__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.sponsorship-card{background:#fff;border:1px solid #e3e3e8;border-radius:14px;padding:36px 28px 32px;text-align:center;display:flex;flex-direction:column;align-items:center;transition:all .3s ease;position:relative;border-top:4px solid var(--gold)}
-.sponsorship-card:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(45,61,123,.16);border-color:var(--gold)}
-.sponsorship-card__icon{width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,var(--gold) 0%,var(--gold-light) 100%);color:#fff;display:flex;align-items:center;justify-content:center;margin-bottom:18px;box-shadow:0 6px 18px rgba(199,134,43,.35)}
-.sponsorship-card h3{font-family:'Montserrat',sans-serif;font-size:20px;font-weight:800;color:var(--navy);line-height:1.25}
-.sponsorship-card p{font-size:14.5px;color:var(--charcoal);margin-top:12px;line-height:1.6;flex:1}
-.sponsorship-card .btn{margin-top:22px;width:100%}
-.sponsorship-card__ribbon{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--navy);color:#fff;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1.2px;padding:6px 14px;border-radius:20px;box-shadow:0 4px 12px rgba(45,61,123,.25)}
-@media(max-width:1023px){.sponsorships__grid{grid-template-columns:1fr;max-width:480px;margin:0 auto}}
-@media(max-width:767px){.sponsorships{padding:48px 0}.sponsorships__header h2{font-size:26px}}
 
 /* Impact stats */
 .impact{background:#fff;padding:80px 0}
@@ -368,7 +346,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(-
 /* Footer */
 .footer-wave{display:block;width:100%;height:60px;background:var(--gold)}
 .footer-wave svg{display:block;width:100%;height:60px}
-.footer{background:var(--brown);padding:64px 0 0;color:#fff}
+.footer{background:var(--navy);padding:64px 0 0;color:#fff}
 .footer__grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.2fr;gap:48px}
 .footer__brand .logo{flex-direction:column;align-items:flex-start;gap:12px}
 .footer__brand .logo img{height:96px;width:auto;background:rgba(255,255,255,.96);padding:6px;border-radius:8px}
@@ -382,11 +360,11 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(-
 .footer__links a:hover{color:var(--gold-light)}
 .footer__contact-info p{font-size:14px;color:rgba(255,255,255,.85);line-height:1.6}
 .footer__contact-info a{transition:color .2s}.footer__contact-info a:hover{color:var(--gold-light)}
-.footer__badges{display:flex;gap:14px;margin-top:20px;align-items:center;flex-wrap:wrap}
-.footer__badges img{height:96px;width:auto;background:rgba(255,255,255,.97);padding:10px;border-radius:8px;box-shadow:0 4px 14px rgba(0,0,0,.2)}
-.footer__badge--platinum{background:rgba(255,255,255,.97);color:var(--navy);font-family:'Montserrat',sans-serif;font-weight:700;font-size:12px;line-height:1.25;text-align:center;padding:14px 18px;border-radius:8px;letter-spacing:.6px;text-transform:uppercase;min-width:108px;box-shadow:0 4px 14px rgba(0,0,0,.2)}
-.footer__badge--platinum strong{display:block;font-size:16px;color:var(--gold);margin:2px 0}
-.footer__bottom{background:var(--brown-deep);margin-top:48px;padding:18px 0}
+.footer__badges{display:flex;gap:12px;margin-top:18px;align-items:center;flex-wrap:wrap}
+.footer__badges img{height:64px;width:auto;background:rgba(255,255,255,.95);padding:6px;border-radius:6px}
+.footer__badge--platinum{background:rgba(255,255,255,.95);color:var(--navy);font-family:'Montserrat',sans-serif;font-weight:700;font-size:10px;line-height:1.2;text-align:center;padding:8px 12px;border-radius:6px;letter-spacing:.5px;text-transform:uppercase;min-width:80px}
+.footer__badge--platinum strong{display:block;font-size:13px;color:var(--gold)}
+.footer__bottom{background:var(--navy-deep);margin-top:48px;padding:18px 0}
 .footer__bottom .container{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
 .footer__copy{font-size:13px;color:rgba(255,255,255,.6)}
 .footer__legal{display:flex;gap:18px}
@@ -455,7 +433,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(-
    <a href="#" class="logo" aria-label="COHAP Outreach Corporation home">
     <img src="bigger bird_dullercolor.png" alt="COHAP Outreach Corporation" loading="eager">
     <span class="logo__text">
-     <span class="logo__name">COHAP OUTREACH CORPORATION</span>
+     <span class="logo__name">COHAP Outreach<br>Corporation</span>
      <span class="logo__tagline">Chance of Hope &amp; Prosperity</span>
     </span>
    </a>
@@ -473,7 +451,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(-
   <div class="container">
    <nav class="nav-links">
    <div class="nav-item">
-    <a href="#mission" aria-haspopup="true" aria-expanded="false">Mission / Vision <svg class="chev" width="11" height="11"><use href="#i-chev"/></svg></a>
+    <a href="#about" aria-haspopup="true" aria-expanded="false">Who We Are <svg class="chev" width="11" height="11"><use href="#i-chev"/></svg></a>
     <div class="dropdown">
      <a href="#mission">Mission</a>
      <a href="#vision">Vision</a>
@@ -508,6 +486,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(-
      <a href="#committees">Join a Committee</a>
      <a href="#volunteer-events">Volunteer for Events Registration</a>
      <a href="#vendor">Community Vendor Registration</a>
+     <a href="#volunteer">Volunteer Opportunities</a>
      <a href="#sponsor">Become a Sponsor</a>
     </div>
    </div>
@@ -543,10 +522,10 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(-
   <button class="mobile-nav__close" aria-label="Close menu">&times;</button>
  </div>
  <div class="mobile-nav__body">
-  <div class="mobile-nav__item"><button class="mobile-nav__toggle" aria-expanded="false">Mission / Vision <svg class="chev"><use href="#i-chev"/></svg></button><div class="mobile-nav__sub"><a href="#mission">Mission</a><a href="#vision">Vision</a><a href="#goals">Goals</a><a href="#core-values">Five Core Values</a><a href="#story">Our Story</a><a href="#founder">About Our Founder</a><a href="#team">About Our Team</a></div></div>
+  <div class="mobile-nav__item"><button class="mobile-nav__toggle" aria-expanded="false">Who We Are <svg class="chev"><use href="#i-chev"/></svg></button><div class="mobile-nav__sub"><a href="#mission">Mission</a><a href="#vision">Vision</a><a href="#goals">Goals</a><a href="#core-values">Five Core Values</a><a href="#story">Our Story</a><a href="#founder">About Our Founder</a><a href="#team">About Our Team</a></div></div>
   <div class="mobile-nav__item"><button class="mobile-nav__toggle" aria-expanded="false">Programs <svg class="chev"><use href="#i-chev"/></svg></button><div class="mobile-nav__sub"><a href="#housing">Housing</a><a href="#education">Education</a><a href="#entrepreneurship">Entrepreneurship</a><a href="#mental-wellness">Mental Wellness</a><a href="#mentoring">Mentoring (12&ndash;25)</a></div></div>
   <div class="mobile-nav__item"><button class="mobile-nav__toggle" aria-expanded="false">Get Help <svg class="chev"><use href="#i-chev"/></svg></button><div class="mobile-nav__sub"><a href="#request">Request Assistance</a></div></div>
-  <div class="mobile-nav__item"><button class="mobile-nav__toggle" aria-expanded="false">Get Involved <svg class="chev"><use href="#i-chev"/></svg></button><div class="mobile-nav__sub"><a href="#advisory">Join Advisory Board</a><a href="#committees">Join a Committee</a><a href="#volunteer-events">Volunteer for Events Registration</a><a href="#vendor">Community Vendor Registration</a><a href="#sponsor">Become a Sponsor</a></div></div>
+  <div class="mobile-nav__item"><button class="mobile-nav__toggle" aria-expanded="false">Get Involved <svg class="chev"><use href="#i-chev"/></svg></button><div class="mobile-nav__sub"><a href="#advisory">Join Advisory Board</a><a href="#committees">Join a Committee</a><a href="#volunteer-events">Volunteer for Events Registration</a><a href="#vendor">Community Vendor Registration</a><a href="#volunteer">Volunteer Opportunities</a><a href="#sponsor">Become a Sponsor</a></div></div>
   <div class="mobile-nav__item"><a href="#events">Events</a></div>
   <div class="mobile-nav__item"><button class="mobile-nav__toggle" aria-expanded="false">News &amp; Impact <svg class="chev"><use href="#i-chev"/></svg></button><div class="mobile-nav__sub"><a href="#press">Press Releases</a><a href="#media">Media Appearances</a><a href="#gallery">Gallery</a><a href="#newsletters">Newsletters</a><div class="mobile-nav__sub-group">Impact Reports</div><a href="#report-2025">2025 Report</a><a href="#report-2024">2024 Report</a><a href="#report-2023">2023 Report</a></div></div>
   <div class="mobile-nav__item"><a href="#contact">Contact Us</a></div>
@@ -599,9 +578,9 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(-
    </div>
    <div class="pathway-card" id="sponsor">
     <div class="pathway-card__icon"><svg width="32" height="32"><use href="#i-building"/></svg></div>
-    <h4>Sponsor Hygiene Kits</h4>
-    <p>Sponsor Hygiene Kits, the Annual Back-to-School Bash &amp; Job Fair, or Operation Turkey / Housing &mdash; pick the package that fits.</p>
-    <a href="#sponsorships" class="pathway-card__link">View Sponsorship Packages &rarr;</a>
+    <h4>I Want to Sponsor</h4>
+    <p>Sponsor a hygiene kit, an apartment, the Back-to-School Bash, or a campaign. All sponsorships in one place.</p>
+    <a href="#sponsor" class="pathway-card__link">Become a Sponsor &rarr;</a>
    </div>
   </div>
  </div>
@@ -618,7 +597,65 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(-
  </div>
 </section>
 
-<!-- Programs (How We Help) -->
+<!-- Active Campaign -->
+<section class="campaign reveal-section">
+ <div class="container">
+  <div class="campaign__grid">
+   <div class="campaign__image"><h3>BACK TO SCHOOL<br>BASH 2026</h3><p>Supporting 500+ Children</p></div>
+   <div class="campaign__content">
+    <p class="campaign__eyebrow">Active Campaign</p>
+    <h2>Back to School Bash 2026</h2>
+    <p>Help us provide school supplies, hygiene kits, and new shoes to 500+ disadvantaged children in the Greater Houston area. Your $25 sponsors one child's complete back-to-school kit.</p>
+    <div class="progress-wrapper">
+     <div class="progress-labels"><span class="raised">$390,000 raised</span><span class="goal">$600,000 goal</span></div>
+     <div class="progress-track"><div class="progress-fill" style="--progress:65%"></div></div>
+    </div>
+    <div class="campaign__buttons">
+     <a href="#donate" class="btn btn--cta">Contribute to This Campaign</a>
+     <a href="#sponsor" class="btn btn--outline">Sponsorship Options</a>
+    </div>
+    <a href="#campaigns" class="campaign__secondary">View all active campaigns &rarr;</a>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- Impact Stats -->
+<section class="impact reveal-section">
+ <div class="container">
+  <div class="impact__header">
+   <h2>Our Community Impact</h2>
+   <p>Real numbers from the families we walk alongside every day.</p>
+  </div>
+  <div class="impact__grid">
+   <div class="impact__item">
+    <div class="impact__icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#2D3D7B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5L12 4l9 5.5"/><path d="M5 8.5V18a1 1 0 001 1h12a1 1 0 001-1V8.5"/><rect x="9" y="13" width="6" height="6" rx=".5"/></svg></div>
+    <div class="impact__number"><span class="counter" data-target="500">0</span><span class="impact__suffix">+</span></div>
+    <p class="impact__label">Families Served Annually</p>
+   </div>
+   <div class="impact__item">
+    <div class="impact__icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#2D3D7B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="3"/><path d="M9 12c-3.5 0-6 1.5-6 3.5V17h12v-1.5c0-2-2.5-3.5-6-3.5z"/><circle cx="17" cy="8" r="2.5"/><path d="M17 12.5c2.5.3 5 1.4 5 3V17h-4"/></svg></div>
+    <div class="impact__number"><span class="counter" data-target="2000">0</span><span class="impact__suffix">+</span></div>
+    <p class="impact__label">Volunteers Engaged</p>
+   </div>
+   <div class="impact__item">
+    <div class="impact__icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#2D3D7B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 11H22v7a2 2 0 01-2 2h-3v-9h1.5z"/><path d="M3.5 11H2v7a2 2 0 002 2h3v-9H5.5z"/><path d="M7 11l2.5-4L12 9l2.5-2L17 11"/><path d="M7 11v9"/><path d="M17 11v9"/><path d="M7 15h10"/></svg></div>
+    <div class="impact__number"><span class="counter" data-target="100">0</span><span class="impact__suffix">+</span></div>
+    <p class="impact__label">Community Partners</p>
+   </div>
+   <div class="impact__item">
+    <div class="impact__icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#2D3D7B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.5"/><circle cx="12" cy="12" r="2"/></svg></div>
+    <div class="impact__number"><span class="impact__prefix">$</span><span class="counter" data-target="600">0</span><span class="impact__suffix">K</span></div>
+    <p class="impact__label">Housing Campaign Goal</p>
+   </div>
+  </div>
+  <div class="impact__cta">
+   <a href="#reports" class="btn btn--outline">View Annual Impact Reports <span class="btn-arrow">&rarr;</span></a>
+  </div>
+ </div>
+</section>
+
+<!-- Programs -->
 <section class="programmes reveal-section" id="programmes">
  <div class="container">
   <div class="programmes__header">
@@ -676,96 +713,6 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(-
      <a href="#mentoring" class="programme-card__link">Learn More &rarr;</a>
     </div>
    </div>
-  </div>
- </div>
-</section>
-
-<!-- Active Campaign -->
-<section class="campaign reveal-section">
- <div class="container">
-  <div class="campaign__grid">
-   <div class="campaign__image"><h3>ANNUAL BACK&#8209;TO&#8209;SCHOOL BASH<br>&amp; JOB FAIR</h3><p>Supporting 3,000 Kids</p></div>
-   <div class="campaign__content">
-    <p class="campaign__eyebrow">Active Annual Campaign</p>
-    <h2>Annual Back-to-School Bash &amp; Job Fair</h2>
-    <p>Help us provide school supplies, hygiene kits, and new shoes to 3,000 disadvantaged children across the Greater Houston area &mdash; plus on-site job-fair connections for parents and caregivers. Your $25 sponsors one child's complete back-to-school kit.</p>
-    <div class="progress-wrapper">
-     <div class="progress-labels"><span class="raised">$390,000 raised</span><span class="goal">$600,000 goal</span></div>
-     <div class="progress-track"><div class="progress-fill" style="--progress:65%"></div></div>
-    </div>
-    <div class="campaign__buttons">
-     <a href="#donate" class="btn btn--cta">Contribute to This Campaign</a>
-     <a href="#sponsorships" class="btn btn--outline">Sponsorship Options</a>
-    </div>
-    <a href="#campaigns" class="campaign__secondary">View all active campaigns &rarr;</a>
-   </div>
-  </div>
- </div>
-</section>
-
-<!-- Sponsorship Packages -->
-<section class="sponsorships reveal-section" id="sponsorships">
- <div class="container">
-  <div class="sponsorships__header">
-   <p class="sponsorships__eyebrow">Become a Sponsor</p>
-   <h2>Three Ways to Sponsor</h2>
-   <p>Pick the cause that resonates with your team. Every sponsorship directly funds the programs and events COHAP runs in the Greater Houston community.</p>
-  </div>
-  <div class="sponsorships__grid">
-   <article class="sponsorship-card">
-    <div class="sponsorship-card__ribbon">Most Requested</div>
-    <div class="sponsorship-card__icon"><svg width="32" height="32"><use href="#i-hearthand"/></svg></div>
-    <h3>Hygiene Kits</h3>
-    <p>Sponsor essential hygiene kits distributed to families in crisis &mdash; soap, shampoo, dental care, sanitary products, and more.</p>
-    <a href="#sponsor-hygiene" class="btn btn--cta">Sponsor Hygiene Kits</a>
-   </article>
-   <article class="sponsorship-card">
-    <div class="sponsorship-card__icon"><svg width="32" height="32"><use href="#i-grad"/></svg></div>
-    <h3>Annual Back-to-School Bash &amp; Job Fair</h3>
-    <p>Underwrite supplies, backpacks, hygiene, and shoes for 3,000 kids each year &mdash; plus the on-site job fair for their parents.</p>
-    <a href="#sponsor-bts" class="btn btn--cta">Sponsor the Bash</a>
-   </article>
-   <article class="sponsorship-card">
-    <div class="sponsorship-card__icon"><svg width="32" height="32"><use href="#i-home"/></svg></div>
-    <h3>Operation Turkey / Housing Program</h3>
-    <p>Fund Thanksgiving meals through Operation Turkey and support transitional housing for veterans, survivors, and returning citizens.</p>
-    <a href="#sponsor-housing" class="btn btn--cta">Sponsor Housing</a>
-   </article>
-  </div>
- </div>
-</section>
-
-<!-- Impact Stats -->
-<section class="impact reveal-section">
- <div class="container">
-  <div class="impact__header">
-   <h2>Our Community Impact</h2>
-   <p>Real numbers from the families we walk alongside every day.</p>
-  </div>
-  <div class="impact__grid">
-   <div class="impact__item">
-    <div class="impact__icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#2D3D7B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5L12 4l9 5.5"/><path d="M5 8.5V18a1 1 0 001 1h12a1 1 0 001-1V8.5"/><rect x="9" y="13" width="6" height="6" rx=".5"/></svg></div>
-    <div class="impact__number"><span class="counter" data-target="500">0</span><span class="impact__suffix">+</span></div>
-    <p class="impact__label">Families Served Annually</p>
-   </div>
-   <div class="impact__item">
-    <div class="impact__icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#2D3D7B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="3"/><path d="M9 12c-3.5 0-6 1.5-6 3.5V17h12v-1.5c0-2-2.5-3.5-6-3.5z"/><circle cx="17" cy="8" r="2.5"/><path d="M17 12.5c2.5.3 5 1.4 5 3V17h-4"/></svg></div>
-    <div class="impact__number"><span class="counter" data-target="2000">0</span><span class="impact__suffix">+</span></div>
-    <p class="impact__label">Volunteers Engaged</p>
-   </div>
-   <div class="impact__item">
-    <div class="impact__icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#2D3D7B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 11H22v7a2 2 0 01-2 2h-3v-9h1.5z"/><path d="M3.5 11H2v7a2 2 0 002 2h3v-9H5.5z"/><path d="M7 11l2.5-4L12 9l2.5-2L17 11"/><path d="M7 11v9"/><path d="M17 11v9"/><path d="M7 15h10"/></svg></div>
-    <div class="impact__number"><span class="counter" data-target="100">0</span><span class="impact__suffix">+</span></div>
-    <p class="impact__label">Community Partners</p>
-   </div>
-   <div class="impact__item">
-    <div class="impact__icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#2D3D7B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.5"/><circle cx="12" cy="12" r="2"/></svg></div>
-    <div class="impact__number"><span class="impact__prefix">$</span><span class="counter" data-target="600">0</span><span class="impact__suffix">K</span></div>
-    <p class="impact__label">Housing Campaign Goal</p>
-   </div>
-  </div>
-  <div class="impact__cta">
-   <a href="#reports" class="btn btn--outline">View Annual Impact Reports <span class="btn-arrow">&rarr;</span></a>
   </div>
  </div>
 </section>
@@ -958,7 +905,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(-
 </main>
 
 <!-- Footer -->
-<div class="footer-wave"><svg viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0,20 C360,60 720,0 1080,40 C1260,55 1380,25 1440,30 L1440,60 L0,60 Z" fill="#5C3A26"/></svg></div>
+<div class="footer-wave"><svg viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0,20 C360,60 720,0 1080,40 C1260,55 1380,25 1440,30 L1440,60 L0,60 Z" fill="#2D3D7B"/></svg></div>
 <footer class="footer" id="contact">
  <div class="container">
   <div class="footer__grid">
@@ -980,7 +927,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(-
    <div>
     <h5>Quick Links</h5>
     <div class="footer__links">
-     <a href="#mission">Mission / Vision</a>
+     <a href="#about">Who We Are</a>
      <a href="#programmes">Programs</a>
      <a href="#get-help">Get Help</a>
      <a href="#get-involved">Get Involved</a>
