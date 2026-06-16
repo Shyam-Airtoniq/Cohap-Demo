@@ -15,11 +15,11 @@
  --navy-soft:#343a7e;
  --blue-light:#6A78D1;
  --blue-tint:#E8EAF6;
- --gold:#B27F1D;        /* exact brand gold from existing site (rgb 178,127,29) */
- --gold-light:#D9A94B;  /* derived lighter accent */
- --gold-deep:#7D5814;   /* derived darker tone */
- --brown:#7D5814;       /* footer base — darker brand gold-brown */
- --brown-deep:#4D3408;  /* footer bottom strip */
+ --gold:#c7862b;
+ --gold-light:#efac73;
+ --gold-deep:#8d4f36;
+ --brown:#5C3A26;       /* footer brown-gold base (placeholder pending exact code from existing site) */
+ --brown-deep:#3F2716;  /* darker footer accent */
  --white:#fff;
  --light-gray:#F4F4F6;
  --soft-gray:#E9E8E8;
@@ -464,7 +464,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(-
      <a href="tel:+18882642799"><svg width="14" height="14"><use href="#i-phone"/></svg>(888) 264-2799</a>
      <a href="mailto:contactus@cohapoutreachcorporation.org"><svg width="14" height="14"><use href="#i-mail"/></svg>contactus@cohapoutreachcorporation.org</a>
     </div>
-    <a href="https://cohapoutreachcorporation.org/donate/" class="nav-donate nav-donate-desktop" target="_blank" rel="noopener"><svg width="16" height="16"><use href="#i-heart"/></svg> Donate</a>
+    <a href="#donate" class="nav-donate nav-donate-desktop"><svg width="16" height="16"><use href="#i-heart"/></svg> Donate</a>
     <button class="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
    </div>
   </div>
@@ -551,7 +551,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(-
   <div class="mobile-nav__item"><button class="mobile-nav__toggle" aria-expanded="false">News &amp; Impact <svg class="chev"><use href="#i-chev"/></svg></button><div class="mobile-nav__sub"><a href="#press">Press Releases</a><a href="#media">Media Appearances</a><a href="#gallery">Gallery</a><a href="#newsletters">Newsletters</a><div class="mobile-nav__sub-group">Impact Reports</div><a href="#report-2025">2025 Report</a><a href="#report-2024">2024 Report</a><a href="#report-2023">2023 Report</a></div></div>
   <div class="mobile-nav__item"><a href="#contact">Contact Us</a></div>
  </div>
- <div class="mobile-nav__footer"><a href="https://cohapoutreachcorporation.org/donate/" class="nav-donate" target="_blank" rel="noopener"><svg width="16" height="16"><use href="#i-heart"/></svg> Donate Now</a></div>
+ <div class="mobile-nav__footer"><a href="#donate" class="nav-donate"><svg width="16" height="16"><use href="#i-heart"/></svg> Donate Now</a></div>
 </nav>
 
 <main id="main">
@@ -564,7 +564,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(-
    <h1 class="hero__headline">Breaking the Cycle of Homelessness.<span>Restoring hope &amp; building futures across Greater Houston.</span></h1>
    <p class="hero__subheadline">COHAP Outreach Corporation walks alongside veterans, domestic violence survivors, formerly incarcerated individuals, and aged-out foster youth &mdash; providing structured pathways through housing, education, entrepreneurship, and mentoring.</p>
    <div class="hero__ctas">
-    <a href="https://cohapoutreachcorporation.org/donate/" class="btn btn--cta" target="_blank" rel="noopener"><svg width="18" height="18"><use href="#i-heart"/></svg> Donate Now</a>
+    <a href="#donate" class="btn btn--cta"><svg width="18" height="18"><use href="#i-heart"/></svg> Donate Now</a>
     <a href="#programmes" class="btn btn--ghost">How We Help <span class="btn-arrow">&rarr;</span></a>
    </div>
   </div>
@@ -589,7 +589,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(-
     <div class="pathway-card__icon"><svg width="32" height="32"><use href="#i-hearthand"/></svg></div>
     <h4>I Want to Give</h4>
     <p>Your donation directly funds housing, education, and mentoring. Every dollar creates a pathway out of homelessness.</p>
-    <a href="https://cohapoutreachcorporation.org/donate/" class="pathway-card__link" target="_blank" rel="noopener">Donate &rarr;</a>
+    <a href="#donate" class="pathway-card__link">Donate &rarr;</a>
    </div>
    <div class="pathway-card" id="get-involved">
     <div class="pathway-card__icon"><svg width="32" height="32"><use href="#i-users"/></svg></div>
@@ -601,7 +601,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(-
     <div class="pathway-card__icon"><svg width="32" height="32"><use href="#i-building"/></svg></div>
     <h4>Sponsor Hygiene Kits</h4>
     <p>Sponsor Hygiene Kits, the Annual Back-to-School Bash &amp; Job Fair, or Operation Turkey / Housing &mdash; pick the package that fits.</p>
-    <a href="https://cohapoutreachcorporation.org/become-a-sponsor/" class="pathway-card__link" target="_blank" rel="noopener">View Sponsorship Packages &rarr;</a>
+    <a href="#sponsorships" class="pathway-card__link">View Sponsorship Packages &rarr;</a>
    </div>
   </div>
  </div>
@@ -694,8 +694,8 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(-
      <div class="progress-track"><div class="progress-fill" style="--progress:65%"></div></div>
     </div>
     <div class="campaign__buttons">
-     <a href="https://cohapoutreachcorporation.org/donate/" class="btn btn--cta" target="_blank" rel="noopener">Contribute to This Campaign</a>
-     <a href="https://cohapoutreachcorporation.org/become-a-sponsor/" class="btn btn--outline" target="_blank" rel="noopener">Sponsorship Options</a>
+     <a href="#donate" class="btn btn--cta">Contribute to This Campaign</a>
+     <a href="#sponsorships" class="btn btn--outline">Sponsorship Options</a>
     </div>
     <a href="#campaigns" class="campaign__secondary">View all active campaigns &rarr;</a>
    </div>
@@ -717,19 +717,19 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(-
     <div class="sponsorship-card__icon"><svg width="32" height="32"><use href="#i-hearthand"/></svg></div>
     <h3>Hygiene Kits</h3>
     <p>Sponsor essential hygiene kits distributed to families in crisis &mdash; soap, shampoo, dental care, sanitary products, and more.</p>
-    <a href="https://cohapoutreachcorporation.org/donate/" class="btn btn--cta" target="_blank" rel="noopener">Sponsor Hygiene Kits</a>
+    <a href="#sponsor-hygiene" class="btn btn--cta">Sponsor Hygiene Kits</a>
    </article>
    <article class="sponsorship-card">
     <div class="sponsorship-card__icon"><svg width="32" height="32"><use href="#i-grad"/></svg></div>
     <h3>Annual Back-to-School Bash &amp; Job Fair</h3>
     <p>Underwrite supplies, backpacks, hygiene, and shoes for 3,000 kids each year &mdash; plus the on-site job fair for their parents.</p>
-    <a href="https://cohapoutreachcorporation.org/donate/" class="btn btn--cta" target="_blank" rel="noopener">Sponsor the Bash</a>
+    <a href="#sponsor-bts" class="btn btn--cta">Sponsor the Bash</a>
    </article>
    <article class="sponsorship-card">
     <div class="sponsorship-card__icon"><svg width="32" height="32"><use href="#i-home"/></svg></div>
     <h3>Operation Turkey / Housing Program</h3>
     <p>Fund Thanksgiving meals through Operation Turkey and support transitional housing for veterans, survivors, and returning citizens.</p>
-    <a href="https://www.operationturkey.com/meal-request/" class="btn btn--cta" target="_blank" rel="noopener">Operation Turkey</a>
+    <a href="#sponsor-housing" class="btn btn--cta">Sponsor Housing</a>
    </article>
   </div>
  </div>
@@ -958,7 +958,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(-
 </main>
 
 <!-- Footer -->
-<div class="footer-wave"><svg viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0,20 C360,60 720,0 1080,40 C1260,55 1380,25 1440,30 L1440,60 L0,60 Z" fill="#7D5814"/></svg></div>
+<div class="footer-wave"><svg viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0,20 C360,60 720,0 1080,40 C1260,55 1380,25 1440,30 L1440,60 L0,60 Z" fill="#5C3A26"/></svg></div>
 <footer class="footer" id="contact">
  <div class="container">
   <div class="footer__grid">
@@ -997,8 +997,8 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(-
      <a href="#committees">Join a Committee</a>
      <a href="#volunteer-events">Volunteer for Events</a>
      <a href="#vendor">Vendor Registration</a>
-     <a href="https://cohapoutreachcorporation.org/become-a-sponsor/" target="_blank" rel="noopener">Become a Sponsor</a>
-     <a href="https://cohapoutreachcorporation.org/donate/" target="_blank" rel="noopener">Donate</a>
+     <a href="#sponsor">Become a Sponsor</a>
+     <a href="#donate">Donate</a>
     </div>
    </div>
    <div>
