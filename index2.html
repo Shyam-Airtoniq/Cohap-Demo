@@ -181,7 +181,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(-
 /* Campaign */
 .campaign{background:var(--light-gray);padding:80px 0}
 .campaign__grid{display:grid;grid-template-columns:55fr 45fr;gap:48px;align-items:center}
-.campaign__image{background:linear-gradient(135deg,rgba(45,61,123,.7),rgba(40,48,108,.85)),url('images/school-bash.jpg') center/cover no-repeat;border-radius:12px;height:400px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;text-align:center;padding:40px}
+.campaign__image{background:linear-gradient(135deg,rgba(45,61,123,.45),rgba(40,48,108,.65)),url('images/IMG_0455.jpg') center/cover no-repeat;border-radius:12px;height:400px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;text-align:center;padding:40px}
 .campaign__image h3{font-family:'Montserrat',sans-serif;font-size:36px;font-weight:800;line-height:1.15;color:#fff}
 .campaign__image p{font-size:18px;margin-top:12px;opacity:.92}
 .campaign__eyebrow{font-family:'Montserrat',sans-serif;font-size:13px;text-transform:uppercase;letter-spacing:2px;color:var(--gold);font-weight:700;margin-bottom:8px}
@@ -305,6 +305,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(-
 .event-card__day{font-family:'Montserrat',sans-serif;font-size:22px;font-weight:800}
 .event-card__body h4{font-size:16px;font-weight:700;color:var(--navy);line-height:1.3}
 .event-card__location{font-size:13px;color:var(--mid-gray);display:flex;align-items:center;gap:4px;margin-top:4px}
+.event-card__time{font-size:13px;color:var(--mid-gray);margin-top:2px}
 .event-card__link{font-size:13px;color:var(--navy);font-weight:700;margin-top:8px;display:inline-block;text-transform:uppercase;letter-spacing:.5px;font-family:'Montserrat',sans-serif}
 .event-card__link:hover{color:var(--gold)}
 .news-card{background:#fff;border-radius:8px;padding:0;margin-bottom:16px;transition:box-shadow .2s,transform .2s;overflow:hidden;display:flex;flex-direction:column}
@@ -832,34 +833,25 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(-
    <div>
     <h2>Upcoming Events</h2>
     <div class="event-card">
-     <img src="images/news-carshow.jpg" alt="Car Show" class="event-card__img" loading="lazy">
+     <img src="images/news-carshow.jpg" alt="" class="event-card__img" loading="lazy">
      <div class="event-card__inner">
-      <div class="event-card__date"><span class="event-card__month">Apr</span><span class="event-card__day">15</span></div>
+      <div class="event-card__date"><span class="event-card__month">Aug</span><span class="event-card__day">08</span></div>
       <div class="event-card__body">
-       <h4>Annual Car Show &amp; Music</h4>
-       <p class="event-card__location"><svg width="14" height="14"><use href="#i-mappin"/></svg>Greater Houston Area</p>
+       <h4>Annual Back to School Bash / Job Fair</h4>
+       <p class="event-card__location"><svg width="14" height="14"><use href="#i-mappin"/></svg>Texas Southern University, Houston, TX</p>
+       <p class="event-card__time">12:00 PM &ndash; 3:00 PM</p>
        <a href="#" class="event-card__link">Register &rarr;</a>
       </div>
      </div>
     </div>
     <div class="event-card">
-     <img src="images/school-bash.jpg" alt="Back to School Bash" class="event-card__img" loading="lazy">
+     <img src="images/school-bash.jpg" alt="" class="event-card__img" loading="lazy">
      <div class="event-card__inner">
-      <div class="event-card__date"><span class="event-card__month">Jun</span><span class="event-card__day">22</span></div>
+      <div class="event-card__date"><span class="event-card__month">Oct</span><span class="event-card__day">17</span></div>
       <div class="event-card__body">
-       <h4>Back to School Bash 2026</h4>
-       <p class="event-card__location"><svg width="14" height="14"><use href="#i-mappin"/></svg>Sweetwater Point, Houston</p>
-       <a href="#" class="event-card__link">Register &rarr;</a>
-      </div>
-     </div>
-    </div>
-    <div class="event-card">
-     <img src="images/news-turkey.jpg" alt="Operation Turkey" class="event-card__img" loading="lazy">
-     <div class="event-card__inner">
-      <div class="event-card__date"><span class="event-card__month">Nov</span><span class="event-card__day">26</span></div>
-      <div class="event-card__body">
-       <h4>Operation Turkey 2026</h4>
-       <p class="event-card__location"><svg width="14" height="14"><use href="#i-mappin"/></svg>Tomball, TX</p>
+       <h4>Gala / Fashion Show</h4>
+       <p class="event-card__location"><svg width="14" height="14"><use href="#i-mappin"/></svg>Venue to be announced</p>
+       <p class="event-card__time">8:00 AM &ndash; 5:00 PM</p>
        <a href="#" class="event-card__link">Register &rarr;</a>
       </div>
      </div>
@@ -912,11 +904,11 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(-
    <a href="#gallery" class="btn btn--outline">View Full Gallery &rarr;</a>
   </div>
   <div class="gallery__grid">
-   <div class="gallery__item" style="background-image:url('images/volunteers.jpg')" role="img" aria-label="Volunteers serving the community"></div>
-   <div class="gallery__item" style="background-image:url('images/news-ribbon.jpg')" role="img" aria-label="Ribbon cutting ceremony"></div>
-   <div class="gallery__item" style="background-image:url('images/news-carshow.jpg')" role="img" aria-label="Annual car show"></div>
-   <div class="gallery__item" style="background-image:url('images/school-bash.jpg')" role="img" aria-label="Back to School Bash"></div>
-   <div class="gallery__item" style="background-image:url('images/news-turkey.jpg')" role="img" aria-label="Operation Turkey"></div>
+   <div class="gallery__item" style="background-image:url('images/0E3A4858-scaled.jpeg')" role="img" aria-label="COHAP team and sponsors at the Annual Back-to-School Bash"></div>
+   <div class="gallery__item" style="background-image:url('images/0E3A4982-scaled.jpg')" role="img" aria-label="Community families at a COHAP event"></div>
+   <div class="gallery__item" style="background-image:url('images/0E3A9514-scaled.jpg')" role="img" aria-label="COHAP team featured on HTown Live"></div>
+   <div class="gallery__item" style="background-image:url('images/0E3A4897-scaled.jpg')" role="img" aria-label="Recognition ceremony at the Back-to-School Bash"></div>
+   <div class="gallery__item" style="background-image:url('images/IMG_0455.jpg')" role="img" aria-label="Back 2 School Bash Drive signage"></div>
   </div>
  </div>
 </section>
